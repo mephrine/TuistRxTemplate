@@ -24,7 +24,7 @@ public extension ProjectDescription.Path {
       return .relativeToRoot("Projects/UserInterface/\(pathString)")
   }
   static func relativeToNetwork(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Network/\(pathString)")
+    return .relativeToRoot("Projects/Modules/Network/\(pathString)")
   }
   static func relativeToResource(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Resource/\(pathString)")

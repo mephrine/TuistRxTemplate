@@ -5,13 +5,12 @@ import UtilityPlugin
 let project = Project
     .framework(name: "ThirdPartyLibraryManager",
                packages: [
-                .Moya,
                 .Swinject,
                 .InjectPropertyWrapper
                ],
                dependencies: [
-                TargetDependency.Framework.Firebase,
-                [.SPM.Moya,
+//                TargetDependency.Framework.Firebase,
+                [.Carthage.Moya,
                  .SPM.Swinject,
                  .SPM.InjectPropertyWrapper],
 //                [.sdk(name: "libsqlite3.tbd"),

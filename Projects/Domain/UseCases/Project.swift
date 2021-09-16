@@ -4,7 +4,7 @@ import ProjectDescriptionHelpers
 let project = Project
     .staticFramework(name: "UseCases",
                      dependencies: [
-//                      TargetDependency.Project.Domain.UseCases,
-                      .Project.Module.ThirdPartyLibraryManager,
+                      .Project.Domain.Repositories,
+                      .Project.Domain.Entities,
                       .Project.Module.RxPackage,
                      ])

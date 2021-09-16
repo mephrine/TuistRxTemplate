@@ -4,6 +4,7 @@ import ProjectDescriptionHelpers
 let project = Project
     .staticFramework(name: "Coordinators",
                      dependencies: [
-//                      TargetDependency.Project.Data.Coordinators,
+                      .Project.Presentation.Views,
+                      .Project.Presentation.ViewModels,
                       .Project.Module.RxPackage,
                      ])

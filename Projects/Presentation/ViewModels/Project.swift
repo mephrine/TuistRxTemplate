@@ -4,7 +4,7 @@ import ProjectDescriptionHelpers
 let project = Project
     .staticFramework(name: "ViewModels",
                      dependencies: [
-//                      TargetDependency.Project.Data.ViewModels,
-                      .Project.Module.ThirdPartyLibraryManager,
+                      .Project.Domain.UseCases,
+                      .Project.Presentation.Coordinators,
                       .Project.Module.RxPackage,
                      ])

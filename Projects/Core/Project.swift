@@ -5,5 +5,5 @@ import UtilityPlugin
 let project = Project
     .framework(name: "Core",
                dependencies: [
-                .Project.Module.RxPackage
+//                .Project.Module.RxPackage
                ])

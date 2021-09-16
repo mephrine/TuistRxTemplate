@@ -4,7 +4,7 @@ import ProjectDescriptionHelpers
 let project = Project
     .staticFramework(name: "Repositories",
                      dependencies: [
-//                      TargetDependency.Project.Domain.Repositories,
-                      .Project.Module.ThirdPartyLibraryManager,
+                      .Project.Data.Repositories,
+                      .Project.Domain.Entities,
                       .Project.Module.RxPackage,
                      ])
