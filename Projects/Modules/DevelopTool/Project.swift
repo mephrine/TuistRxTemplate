@@ -12,4 +12,5 @@ let project = Project
               .SPM.DevelopTool.OHHTTPStubs,
               .SPM.DevelopTool.OHHTTPStubsSwift,
               .SPM.DevelopTool.ProxyNetworkStubPackage,
+              .Carthage.FLEX,
              ])

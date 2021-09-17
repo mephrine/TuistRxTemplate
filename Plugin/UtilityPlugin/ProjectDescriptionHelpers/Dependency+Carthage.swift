@@ -7,6 +7,7 @@ public extension TargetDependency {
 }
 
 public extension TargetDependency.Carthage {
+  static let FLEX = TargetDependency.carthage(name: "FLEX")
   static let Moya = TargetDependency.carthage(name: "Moya")
   static let RxSwift = TargetDependency.carthage(name: "RxSwift")
   static let RxCocoa = TargetDependency.carthage(name: "RxCocoa")
