@@ -11,14 +11,8 @@ public extension ProjectDescription.Path {
   static func relativeToCore(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Core/\(pathString)")
   }
-  static func relativeToPresentation(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Presentation/\(pathString)")
-  }
-  static func relativeToDomain(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Domain/\(pathString)")
-  }
-  static func relativeToData(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Data/\(pathString)")
+  static func relativeToSections(_ pathString: String) -> Self {
+    return .relativeToRoot("Projects/\(pathString)")
   }
   static func relativeToUserInterface(_ pathString: String) -> Self {
       return .relativeToRoot("Projects/UserInterface/\(pathString)")
@@ -42,32 +36,14 @@ extension TargetDependency {
   static func module(name: String) -> Self {
     return .project(target: name, path: .relativeToModule(name))
   }
-  static func dataSource(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
+  static func data(name: String) -> Self {
+    return .project(target: name, path: .relativeToSections(name))
   }
-  static func model(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
+  static func domain(name: String) -> Self {
+    return .project(target: name, path: .relativeToSections(name))
   }
-  static func repositoryInData(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
-  }
-  static func entity(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func repositoryInDomain(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func useCase(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func coordinator(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func view(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func viewModel(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
+  static func presentation(name: String) -> Self {
+    return .project(target: name, path: .relativeToSections(name))
   }
   static func userInterface(name: String) -> Self {
       return .project(target: name, path: .relativeToUserInterface(name))

@@ -2,7 +2,8 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project
-    .staticFramework(name: "Models",
+    .staticFramework(name: "Presentation",
                      dependencies: [
-                      .Project.Domain.Entities,
+                      .Project.Domain,
+                      .Project.Module.RxPackage,
                      ])
