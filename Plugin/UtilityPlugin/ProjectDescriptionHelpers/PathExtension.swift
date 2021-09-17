@@ -8,20 +8,23 @@ public extension ProjectDescription.Path {
   static func relativeToModule(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Modules/\(pathString)")
   }
+  static func relativeToFeature(_ pathString: String) -> Self {
+    return .relativeToRoot("Projects/Features/\(pathString)")
+  }
   static func relativeToCore(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Core/\(pathString)")
   }
-  static func relativeToPresentation(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Presentation/\(pathString)")
+  static func relativeToPresentation(_ feature: String) -> Self {
+    return .relativeToRoot("Projects/Features/\(feature)/Presentation")
   }
-  static func relativeToDomain(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Domain/\(pathString)")
+  static func relativeToDomain(_ feature: String) -> Self {
+    return .relativeToRoot("Projects/Features/\(feature)/Domain")
   }
-  static func relativeToData(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Data/\(pathString)")
+  static func relativeToData(_ feature: String) -> Self {
+    return .relativeToRoot("Projects/Features/\(feature)/Data")
   }
   static func relativeToUserInterface(_ pathString: String) -> Self {
-      return .relativeToRoot("Projects/UserInterface/\(pathString)")
+    return .relativeToRoot("Projects/UserInterface/\(pathString)")
   }
   static func relativeToNetwork(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Modules/Network/\(pathString)")
@@ -42,35 +45,20 @@ extension TargetDependency {
   static func module(name: String) -> Self {
     return .project(target: name, path: .relativeToModule(name))
   }
-  static func dataSource(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
+  static func feature(name: String) -> Self {
+    return .project(target: name, path: .relativeToFeature(name))
   }
-  static func model(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
+  static func data(feature: String) -> Self {
+    return .project(target: "Feature\(feature)Data", path: .relativeToData(feature))
   }
-  static func repositoryInData(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
+  static func domain(feature: String) -> Self {
+    return .project(target: "Feature\(feature)Domain", path: .relativeToDomain(feature))
   }
-  static func entity(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func repositoryInDomain(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func useCase(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func coordinator(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func view(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func viewModel(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
+  static func presentation(feature: String) -> Self {
+    return .project(target: "Feature\(feature)Presentation", path: .relativeToPresentation(feature))
   }
   static func userInterface(name: String) -> Self {
-      return .project(target: name, path: .relativeToUserInterface(name))
+    return .project(target: name, path: .relativeToUserInterface(name))
   }
   static func network(name: String) -> Self {
     return .project(target: name, path: .relativeToNetwork(name))
