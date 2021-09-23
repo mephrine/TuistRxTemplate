@@ -46,15 +46,16 @@ public extension TargetDependency.SPM {
 
 public extension Package {
   static let InjectPropertyWrapper = Package.package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master"))
-  static let Swinject              = Package.package(url: "https://github.com/Swinject/Swinject.git", .branch("master"))
-  static let Kingfisher            = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
+  static let Swinject = Package.package(url: "https://github.com/Swinject/Swinject.git", .branch("master"))
+  static let Kingfisher = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
+  static let Logger = Package.local(path: .relativeToRoot("Projects/Modules/Local/Logger"))
 }
 
 
 // MARK: - Develop Tool
 public extension TargetDependency.SPM.DevelopTool {
-  static let OHHTTPStubs             = TargetDependency.package(product: "OHHTTPStubs")
-  static let OHHTTPStubsSwift        = TargetDependency.package(product: "OHHTTPStubsSwift")
+  static let OHHTTPStubs = TargetDependency.package(product: "OHHTTPStubs")
+  static let OHHTTPStubsSwift = TargetDependency.package(product: "OHHTTPStubsSwift")
   static let ProxyNetworkStubPackage = TargetDependency.package(product: "ProxyNetworkStubPackage")
 }
 
