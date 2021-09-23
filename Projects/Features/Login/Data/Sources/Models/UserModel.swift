@@ -1,5 +1,5 @@
 import Foundation
 
-public struct GetLoginUser {
+public struct UserModel {
   public init() {}
 }

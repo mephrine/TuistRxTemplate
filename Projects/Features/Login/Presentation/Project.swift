@@ -6,4 +6,5 @@ let project = Project
                      dependencies: [
                       .Project.Feature.BaseDependency.Presentation,
                       .Project.Feature.Login.Domain,
+                      .Project.Module.UtilityKit,
                      ])
