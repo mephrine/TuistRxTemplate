@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import AnalyticsKit
+import ThirdPartyLibraryManager
+import ThirdPartyDynamicLibraryPluginManager
+import RepositoryInjectManager
+
+struct PrepareAppDelegateService {
+    func load() {
+        InjectContainerManager().register()
+    }
+}

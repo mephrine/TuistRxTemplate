@@ -7,4 +7,5 @@ let project = Project
                 .Carthage.RxCocoa,
                 .Carthage.RxRelay,
                 .Carthage.RxSwift,
+                .Carthage.RxSwiftExt,
                ])
