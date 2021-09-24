@@ -14,8 +14,8 @@ let dependencies = Dependencies(
             requirement: .upToNext("2.12.4")),
     .github(path: "RxSwiftCommunity/RxDataSources",
             requirement: .upToNext("5.0.2")),
-    .github(path: "devxoul/RxViewController",
-            requirement: .upToNext("2.0.0")),
+//    .github(path: "devxoul/RxViewController",
+//            requirement: .upToNext("2.0.0")),
     .github(path: "Quick/Quick",
             requirement: .branch("main")),
     .github(path: "Quick/Nimble",
@@ -31,8 +31,8 @@ let dependencies = Dependencies(
     .package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master")),
     .package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "2.7.0")),
     .package(url: "https://github.com/AliSoftware/Reusable.git", .upToNextMajor(from: "4.1.2")),
-        
-    .local(path: .relativeToRoot("Projects/UserInterface/ResourcePackage")),
+    .package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master")),
+    .package(url: "https://github.com/Swinject/Swinject.git", .branch("master")),
   ],
   platforms: [.iOS]
 )

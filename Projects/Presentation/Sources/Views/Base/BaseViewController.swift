@@ -9,11 +9,11 @@ class BaseViewController:
 {
 
   // MARK: - Properties
-
   var disposeBag = DisposeBag()
 
-  private(set) var didSetupConstraints: Bool = false
-
+  // MARK: - Inheritance
+  func setupConstraints() {}
+  
   // MARK: - Initialization & Deinitialization
 
   init() {
@@ -27,7 +27,6 @@ class BaseViewController:
 
   deinit {
 //    Logger.info(type(of: self))
-    
   }
 
   // MARK: - View Lifecycle
@@ -37,23 +36,15 @@ class BaseViewController:
     view.setNeedsUpdateConstraints()
   }
 
-  // MARK: - Inheritance
-
   // MARK: - Layout Constraints
+  private(set) var didSetupConstraints: Bool = false
 
   override func updateViewConstraints() {
     setupConstraintsIfNeeded()
     super.updateViewConstraints()
   }
 
-  // MARK: - Internal methods
-
-  func setupConstraints() {
-    // Override here
-  }
-
   // MARK: - Private methods
-
   private func setupConstraintsIfNeeded() {
     guard !didSetupConstraints else { return }
     setupConstraints()

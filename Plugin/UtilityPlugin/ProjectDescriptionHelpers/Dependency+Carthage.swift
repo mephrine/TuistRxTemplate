@@ -15,7 +15,7 @@ public extension TargetDependency.Carthage {
   static let RxSwiftExt = TargetDependency.carthage(name: "RxSwiftExt")
   static let RxFlow = TargetDependency.carthage(name: "RxFlow")
   static let RxDataSources = TargetDependency.carthage(name: "RxDataSources")
-  static let RxViewController = TargetDependency.carthage(name: "RxViewController")
+//  static let RxViewController = TargetDependency.external(name: "RxViewController")
   static let Nimble = TargetDependency.carthage(name: "Nimble")
   static let Quick = TargetDependency.carthage(name: "Quick")
   static let RxBlocking = TargetDependency.carthage(name: "RxBlocking")
@@ -27,5 +27,6 @@ public extension TargetDependency.Carthage {
 public extension TargetDependency {
   static func carthage(name: String) -> Self {
     return .xcframework(path: .relativeToCarthage("\(name).xcframework"))
+//    return .external(name: name)
   }
 }

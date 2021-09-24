@@ -5,8 +5,8 @@ import UtilityPlugin
 let project = Project
     .framework(name: "ThirdPartyLibraryManager",
                packages: [
-                .Swinject,
-                .InjectPropertyWrapper
+                .Logger,
+//                .InjectPropertyWrapper
                ],
                dependencies: [
 //                TargetDependency.Framework.Firebase,

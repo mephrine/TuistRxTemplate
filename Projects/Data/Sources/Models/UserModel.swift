@@ -1,5 +1,5 @@
 import Foundation
 
-public struct UserModel {
-  public init() {}
+struct UserModel: Decodable {
+  var name: String?
 }
