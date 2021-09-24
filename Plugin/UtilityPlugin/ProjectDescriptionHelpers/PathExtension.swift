@@ -81,31 +81,4 @@ extension TargetDependency {
   static func resource(name: String) -> Self {
     return .project(target: name, path: .relativeToResource(name))
   }
-  static func dataSource(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
-  }
-  static func model(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
-  }
-  static func repositoryInData(name: String) -> Self {
-    return .project(target: name, path: .relativeToData(name))
-  }
-  static func entity(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func repositoryInDomain(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func useCase(name: String) -> Self {
-    return .project(target: name, path: .relativeToDomain(name))
-  }
-  static func coordinator(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func view(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
-  static func viewModel(name: String) -> Self {
-    return .project(target: name, path: .relativeToPresentation(name))
-  }
 }
