@@ -2,32 +2,46 @@ import Foundation
 import ProjectDescription
 
 // MARK: Extension
+//extension TargetDependency {
+//  public struct Project {
+//    public struct Feature {
+//      public struct Login {}
+//    }
+//    public struct Core {}
+//    public struct Module {}
+//    public struct UserInterface {}
+//  }
+//}
+//
+//public extension TargetDependency.Project.Feature {
+//  static let Features = TargetDependency.feature(name: "Features")
+//
+//  struct BaseDependency {
+//    public static let Data = TargetDependency.data(feature: "BaseDependency")
+//    public static let Domain = TargetDependency.domain(feature: "BaseDependency")
+//    public static let Presentation = TargetDependency.presentation(feature: "BaseDependency")
+//  }
+//}
+//
+//public extension TargetDependency.Project.Feature.Login {
+//  static let Data = TargetDependency.data(feature: String(describing: Self.self))
+//  static let Domain = TargetDependency.domain(feature: String(describing: Self.self))
+//  static let Presentation = TargetDependency.presentation(feature: String(describing: Self.self))
+//  static let Package = [Data, Domain, Presentation]
+//}
+
 extension TargetDependency {
   public struct Project {
-    public struct Feature {
-      public struct Login {}
-    }
     public struct Core {}
     public struct Module {}
     public struct UserInterface {}
   }
 }
 
-public extension TargetDependency.Project.Feature {
-  static let Features = TargetDependency.feature(name: "Features")
-  
-  struct BaseDependency {
-    public static let Data = TargetDependency.data(feature: "BaseDependency")
-    public static let Domain = TargetDependency.domain(feature: "BaseDependency")
-    public static let Presentation = TargetDependency.presentation(feature: "BaseDependency")
-  }
-}
-
-public extension TargetDependency.Project.Feature.Login {
-  static let Data = TargetDependency.data(feature: String(describing: Self.self))
-  static let Domain = TargetDependency.domain(feature: String(describing: Self.self))
-  static let Presentation = TargetDependency.presentation(feature: String(describing: Self.self))
-  static let Package = [Data, Domain, Presentation]
+public extension TargetDependency.Project {
+  static let Data = TargetDependency.data(name: "Data")
+  static let Domain = TargetDependency.domain(name: "Domain")
+  static let Presentation = TargetDependency.presentation(name : "Presentation")
 }
 
 public extension TargetDependency.Project.Core {

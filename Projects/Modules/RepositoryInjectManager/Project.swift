@@ -5,5 +5,7 @@ let project = Project
   .staticFramework(name: "RepositoryInjectManager",
                    dependencies: [
                     .Project.Module.CoreKit,
-                    .Project.Feature.Features,
+                    .Project.Data,
+                    .Project.Domain,
+                    .Project.Presentation,
                    ])

@@ -42,7 +42,9 @@ let targets: [Target] = [
         resources: ["Resources/**"],
         actions: actions,
         dependencies: [
-          .Project.Feature.Features,
+          .Project.Data,
+          .Project.Domain,
+          .Project.Presentation,
           .Project.Module.RepositoryInjectManager,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ].flatMap { $0 }),
@@ -60,7 +62,9 @@ let targets: [Target] = [
         resources: ["Resources/**"],
         actions: actions,
         dependencies: [
-          .Project.Feature.Features,
+          .Project.Data,
+          .Project.Domain,
+          .Project.Presentation,
           .Project.Module.RepositoryInjectManager,
           .Project.Module.DevelopTool,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,
