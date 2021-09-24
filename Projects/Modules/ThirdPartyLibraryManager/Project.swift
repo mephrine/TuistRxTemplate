@@ -10,9 +10,9 @@ let project = Project
                ],
                dependencies: [
 //                TargetDependency.Framework.Firebase,
-                [.Carthage.Moya,
+                [.Carthage.RxMoya,
                  .SPM.Swinject,
-                 .SPM.InjectPropertyWrapper],
-//                [.sdk(name: "libsqlite3.tbd"),
-//                 .sdk(name: "StoreKit.framework")],
+                 .SPM.InjectPropertyWrapper,
+                 .SPM.Logger,
+                 .SPM.Then,],
                ].flatMap { $0 })

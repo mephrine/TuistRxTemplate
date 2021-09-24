@@ -1,3 +1,11 @@
+//
+//  Log.swift
+//  UtilityModule
+//
+//  Created by 홍경표 on 2021/08/05.
+//  Copyright © 2021 softbay. All rights reserved.
+//
+
 import Foundation
 
 public struct Logger {
