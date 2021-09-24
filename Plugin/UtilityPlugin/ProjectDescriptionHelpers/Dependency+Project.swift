@@ -19,6 +19,12 @@ extension TargetDependency {
 //      public struct Views {}
 //      public struct ViewModels {}
 //    }
+//    public struct Feature {
+//      public struct Login {}
+//    }
+//    public struct Core {}
+//    public struct Module {}
+//    public struct UserInterface {}
     public struct Core {}
     public struct Data {}
     public struct Domain {}
@@ -27,6 +33,23 @@ extension TargetDependency {
     public struct UserInterface {}
   }
 }
+
+//public extension TargetDependency.Project.Feature {
+//  static let Features = TargetDependency.feature(name: "Features")
+//
+//  struct BaseDependency {
+//    public static let Data = TargetDependency.data(feature: "BaseDependency")
+//    public static let Domain = TargetDependency.domain(feature: "BaseDependency")
+//    public static let Presentation = TargetDependency.presentation(feature: "BaseDependency")
+//  }
+//}
+//
+//public extension TargetDependency.Project.Feature.Login {
+//  static let Data = TargetDependency.data(feature: String(describing: Self.self))
+//  static let Domain = TargetDependency.domain(feature: String(describing: Self.self))
+//  static let Presentation = TargetDependency.presentation(feature: String(describing: Self.self))
+//  static let Package = [Data, Domain, Presentation]
+//}
 
 public extension TargetDependency.Project.Data {
   static let DataSources = TargetDependency.dataSource(name: "DataSources")
