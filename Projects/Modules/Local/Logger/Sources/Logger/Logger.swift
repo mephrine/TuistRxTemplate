@@ -13,10 +13,10 @@ public struct Logger {
     private init() {}
     
     private enum Level: String {
-        case debug = "💬 DEBUG"
-        case info  = "💡 INFO"
-        case error = "⚠️ ERROR"
-        case fatal = "🔥 FATAL"
+        case d = "💬 DEBUG"
+        case i = "💡 INFO"
+        case e = "⚠️ ERROR"
+        case f = "🔥 FATAL"
     }
     
     private static let dateFormatter: DateFormatter = {
@@ -43,7 +43,7 @@ public struct Logger {
         #endif
     }
     
-    public static func debug(
+    public static func d(
         _ items: Any...,
         fileName: String = #file,
         function: String = #function,
@@ -54,7 +54,7 @@ public struct Logger {
         log(level: .debug, output, fileName: fileName, function: function, line: line, separator: separator)
     }
     
-    public static func info(
+    public static func i(
         _ items: Any...,
         fileName: String = #file,
         function: String = #function,
@@ -65,7 +65,7 @@ public struct Logger {
         log(level: .info, output, fileName: fileName, function: function, line: line, separator: separator)
     }
     
-    public static func error(
+    public static func e(
         _ items: Any...,
         fileName: String = #file,
         function: String = #function,
@@ -76,7 +76,7 @@ public struct Logger {
         log(level: .error, output, fileName: fileName, function: function, line: line, separator: separator)
     }
     
-    public static func fatal(
+    public static func f(
         _ items: Any...,
         fileName: String = #file,
         function: String = #function,

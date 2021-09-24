@@ -9,8 +9,8 @@
 import Swinject
 import InjectPropertyWrapper
 import ThirdPartyLibraryManager
-import FeatureLoginData
-import FeatureLoginDomain
+import Data
+import Domain
 
 public struct InjectRepository {
   public init() {}

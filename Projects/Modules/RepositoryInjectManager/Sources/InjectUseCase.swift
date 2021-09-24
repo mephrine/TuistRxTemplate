@@ -9,7 +9,7 @@
 import Swinject
 import InjectPropertyWrapper
 import ThirdPartyLibraryManager
-import FeatureLoginDomain
+import Domain
 
 public struct InjectUseCase {
   public init() {}
