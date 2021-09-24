@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AnalyticsKit
 import ThirdPartyLibraryManager
 import ThirdPartyDynamicLibraryPluginManager
 import RepositoryInjectManager
