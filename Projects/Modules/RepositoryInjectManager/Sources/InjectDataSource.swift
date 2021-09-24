@@ -9,7 +9,7 @@
 import Swinject
 import InjectPropertyWrapper
 import ThirdPartyLibraryManager
-import FeatureLoginData
+import DataSources
 
 public struct InjectDataSource {
   public init() {}

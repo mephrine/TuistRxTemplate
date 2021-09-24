@@ -26,6 +26,6 @@ public extension TargetDependency.Carthage {
 
 public extension TargetDependency {
   static func carthage(name: String) -> Self {
-    return .xcFramework(path: .relativeToCarthage("\(name).xcframework"))
+    return .xcframework(path: .relativeToCarthage("\(name).xcframework"))
   }
 }

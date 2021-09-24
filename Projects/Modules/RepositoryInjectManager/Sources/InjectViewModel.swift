@@ -9,7 +9,7 @@
 import Swinject
 import InjectPropertyWrapper
 import ThirdPartyLibraryManager
-import FeatureLoginPresentation
+import Presentation
 
 public struct InjectViewModel {
   public init() {}

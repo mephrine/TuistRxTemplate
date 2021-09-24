@@ -11,24 +11,23 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(
-      _ application: UIApplication,
-      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
-      
-      PrepareAppDelegateService().load()
-      
-      let window = UIWindow(frame: UIScreen.main.bounds)
-      self.window = window
-      
-      let launchRouter = RootBuilder(dependency: AppComponent()).build()
-      self.launchRouter = launchRouter
-      launchRouter.launch(from: window)
-      
-      #if DEBUG
-      PrepareDevelopToolService().load()
-      #endif
-      
-
-      return true
+    
+    PrepareAppDelegateService().load()
+    
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    self.window = window
+    
+//    let launchRouter = RootBuilder(dependency: AppComponent()).build()
+//    self.launchRouter = launchRouter
+//    launchRouter.launch(from: window)
+    
+    #if DEBUG
+    PrepareDevelopToolService().load()
+    #endif
+    
+    return true
   }
 }

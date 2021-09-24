@@ -41,6 +41,7 @@ public extension TargetDependency.SPM {
 public extension TargetDependency.SPM {
   static let Then = TargetDependency.package(product: "Then")
   static let Logger = TargetDependency.package(product: "Logger")
+  static let Reusable = TargetDependency.package(product: "Reusable")
 }
 
 
