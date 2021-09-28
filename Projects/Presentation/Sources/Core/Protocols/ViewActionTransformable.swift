@@ -13,4 +13,6 @@ protocol ViewActionTransformable: AnyObject {
   associatedtype State
   
   func transform(action: Action) -> State
+//  var action: Action { get }
+//  var state: State { get }
 }

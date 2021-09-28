@@ -9,5 +9,10 @@ let project = Project
                     .Project.Module.RxPresentation,
                     .Project.Module.RxPackage,
                     .Project.UserInterface.DesignSystem,
+                    .Project.Module.UtilityKit,
+                   ],
+                   infoPlist: [
+                     "ApiUrl": "$(API_URL)",
+                     "SocketUrl": "$(SOCKET_URL)"
                    ],
                    hasDemoApp: true)

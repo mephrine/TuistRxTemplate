@@ -43,7 +43,7 @@ let targets: [Target] = [
         actions: actions,
         dependencies: [
           .Project.Presentation,
-          .Project.Module.RepositoryInjectManager,
+          .Project.Module.InjectManager,
 //          .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ].flatMap { $0 }),
   .init(name: "\(targetDevName)",
@@ -61,7 +61,7 @@ let targets: [Target] = [
         actions: actions,
         dependencies: [
           .Project.Presentation,
-          .Project.Module.RepositoryInjectManager,
+          .Project.Module.InjectManager,
           .Project.Module.DevelopTool,
 //          .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ]),

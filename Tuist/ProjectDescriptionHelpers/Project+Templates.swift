@@ -19,12 +19,14 @@ public extension Project {
                                 platform: Platform = .iOS,
                                 packages: [Package] = [],
                                 dependencies: [TargetDependency] = [],
+                                infoPlist: [String: InfoPlist.Value] = [:],
                                 hasDemoApp: Bool = false) -> Self {
         return project(name: name,
                        packages: packages,
                        product: .staticFramework,
                        platform: platform,
                        dependencies: dependencies,
+                       infoPlist: infoPlist,
                        hasDemoApp: hasDemoApp)
     }
     
@@ -66,7 +68,7 @@ public extension Project {
                                     .debug(name: .test, xcconfig: .relativeToXCConfig(type: .test, name: name)),
                                     .release(name: .prod, xcconfig: .relativeToXCConfig(type: .prod, name: name)),
                                 ])
-        
+      
         let target1 = Target(name: name,
                              platform: platform,
                              product: product,

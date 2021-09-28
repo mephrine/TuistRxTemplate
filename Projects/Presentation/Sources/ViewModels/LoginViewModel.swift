@@ -4,67 +4,99 @@ import RxCocoa
 import RxFlow
 import UtilityKit
 import Domain
+import InjectPropertyWrapper
 
 public final class LoginViewModel: ViewActionTransformable, HasDisposeBag, Stepper {
   // MARK: - Action
   public struct Action {
-    var typeedIDTextField: Observable<String?>
-    var typedPassWordTextField: Observable<String?>
-    var tappedLoginButton: Observable<(String?, String?)>
+    var viewWillAppear: Observable<Void>
+    var typeedIDTextField: Observable<String>
+    var typedPasswordTextField: Observable<String>
+    var tappedLoginButton: Observable<(String, String)>
   }
   
   // MARK: - State
   public struct State {
-    var loginButtonEnabled: Driver<Bool>
-    var loginSuccess: Driver<User>
+    var cachingLoginID: Driver<String>
+    var enableLoginButton: Driver<Bool>
+    var login: Driver<Result<User, Error>>
   }
+  
+  // MARK: - Inject
+  @Inject private var getLoginUser: GetLoginUser
+  @Inject private var getCachingLoginID: GetCacingLoginID
   
   // MARK: - Properties
   public var steps: PublishRelay<Step>
-  public var disposeBag = DisposeBag()
-  
+  var disposeBag = DisposeBag()
   private let id = BehaviorSubject<String>(value: "")
   private let password = BehaviorSubject<String>(value: "")
   
   // MARK: - Initialize
   public init() {}
-  
-  // MARK: - Transformation
-  public func transform(action: Action) -> State {
-    let idText = action.typeedIDTextField
-      .do(onNext: { [weak self] value in
-        guard let self = self, let idValue = value else { return }
-        self.id.onNext(idValue)
-      })
-        
-    let passwordText = action.typedPassWordTextField
-      .do(onNext: { [weak self] value in
-        guard let self = self, let idValue = value else { return }
-        self.password.onNext(idValue)
-      })
-          
-    let loginButtonEnabled = Observable.combineLatest(
-      idText, passwordText
-    ).map(validation)
-    .asDriver(onErrorJustReturn: false)
-          
-    let loginSuccess = requestLogin(inputData: action.tappedLoginButton)
-    return State(loginButtonEnabled: loginButtonEnabled, loginSuccess: loginSuccess)
-  }
 }
 
+// MARK: - Transformation
 extension LoginViewModel {
-  private func requestLogin(inputData loginInfo: Observable<(String?, String?)>) -> Driver<User> {
-    //    getLoginUser.login(withEmail: email, password: password)
-    //      .observe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
-    //      .subscribe { result in
-    //        self.listener?.login()
-    //      } onError: { error in
-    //        self.presenter.failedLogin(error: LoginError.invalidUserInformation)
-    //      }.disposed(by: disposeBag)
+  public func transform(action: Action) -> State {
+    let cachingLoginID = action.viewWillAppear
+      .observe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+      .flatMap { [weak self] _ -> Observable<String> in
+        guard let this = self else { return .just("") }
+        return this.requestCachingLoginID()
+      }.asDriver(onErrorJustReturn: "")
+    
+    let loginButtonEnabled = Observable.combineLatest(
+        action.typeedIDTextField,
+        action.typedPasswordTextField,
+        resultSelector: { ($0, $1) }
+      )
+      .map(validation)
+      .asDriver(onErrorJustReturn: false)
+    
+    let login = action.tappedLoginButton
+      .observe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+      .flatMap(requestLogin)
+      .asDriver(onErrorJustReturn: .failure(NetworkError.serverFailure))
+    
+    action.typeedIDTextField
+      .ifEmpty(default: "")
+      .bind(to: id)
+      .disposed(by: disposeBag)
+    
+    action.typedPasswordTextField
+      .bind(to: password)
+      .disposed(by: disposeBag)
+
+    return State(cachingLoginID: cachingLoginID, enableLoginButton: loginButtonEnabled, login: login)
   }
 }
 
+// MARK: - UseCase
+extension LoginViewModel {
+  private func requestCachingLoginID() -> Observable<String> {
+    getCachingLoginID.call(params: Void())
+      .catchAndReturn("")
+      .asObservable()
+  }
+  
+  private func requestLogin(loginID: String, password: String) -> Observable<Result<User, Error>> {
+    getLoginUser.call(params: GetLoginUser.Params(loginID: loginID, password: password))
+      .asObservable()
+      .materialize()
+      .map { event -> Event<Result<User, Error>> in
+        switch event {
+        case .error(let error):
+          return .next(.failure(error))
+        default:
+          return event.map { .success($0) }
+        }
+      }
+      .dematerialize()
+  }
+}
+
+// MARK: - Function
 extension LoginViewModel {
   private func validation(id: String?, password: String?) -> Bool {
     id?.isEmpty == false && password?.isEmpty == false

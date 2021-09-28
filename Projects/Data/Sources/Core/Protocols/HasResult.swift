@@ -17,7 +17,7 @@ protocol HasResult {
 }
 
 //ResultIncludable
-struct ResultDTO<T: Decodable>: HasResult, Decodable {
+public struct ResultDTO<T: Decodable>: HasResult, Decodable {
   var result: T?
   var resultCode: String
   var resultMessage: String
@@ -29,7 +29,7 @@ struct ResultDTO<T: Decodable>: HasResult, Decodable {
   }
 }
 
-struct ResultListDTO<T: Decodable>: HasResult, Decodable {
+public struct ResultListDTO<T: Decodable>: HasResult, Decodable {
   var result: [T]?
   var resultCode: String
   var resultMessage: String

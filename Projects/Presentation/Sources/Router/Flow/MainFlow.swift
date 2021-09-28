@@ -18,15 +18,11 @@ class MainFlow: Flow {
   
   private lazy var rootViewController: BaseNavigationController = {
     let viewController = BaseNavigationController()
-    viewController.setNavigationBarHidden(true, animated: false)
+    viewController.setNavigationBarHidden(false, animated: false)
     return viewController
   }()
   
-  private let service: AppServices
-  
-  init(service: AppServices) {
-    self.service = service
-  }
+  init() {}
   
   deinit {
     Logger.d("deinit MainFlow")
@@ -37,17 +33,17 @@ class MainFlow: Flow {
     
     switch step {
     case .goMain:
-      return naviToMain()
+      return routerToMain()
     default:
       return .none
     }
   }
   
-  private func naviToMain() -> FlowContributors {
-    let mainVC = MainVC.instantiate(withViewModel: MainVM(), storyBoardName: "Main")
-    self.rootViewController.setViewControllers([mainVC], animated: false)
+  private func routerToMain() -> FlowContributors {
+    let mainViewController = MainViewController()
+    self.rootViewController.setViewControllers([mainViewController], animated: false)
     
-    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainVC, withNextStepper: mainVC))
+    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainViewController, withNextStepper: mainViewModel.viewModel))
   }
 }
 

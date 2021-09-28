@@ -3,9 +3,13 @@ import ProjectDescriptionHelpers
 
 let project = Project
     .framework(name: "RxPackage",
+               packages: [
+                .RxSwift,
+                .RxSwiftExt
+               ],
                dependencies: [
-                .Carthage.RxCocoa,
-                .Carthage.RxRelay,
-                .Carthage.RxSwift,
-                .Carthage.RxSwiftExt,
+                .SPM.RxCocoa,
+                .SPM.RxRelay,
+                .SPM.RxSwift,
+                .SPM.RxSwiftExt,
                ])

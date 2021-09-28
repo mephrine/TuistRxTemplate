@@ -10,13 +10,13 @@
 
 import Foundation
 
-extension Formatter {
+public extension Formatter {
   static let iso8601withFractionalSeconds = ISO8601DateFormatter().builder
     .formatOptions([.withInternetDateTime, .withFractionalSeconds])
     .build()
 }
 
-extension JSONDecoder.DateDecodingStrategy {
+public extension JSONDecoder.DateDecodingStrategy {
   static let iso8601withFractionalSeconds = custom {
     let container = try $0.singleValueContainer()
     let string = try container.decode(String.self)
@@ -28,7 +28,7 @@ extension JSONDecoder.DateDecodingStrategy {
   }
 }
 
-extension JSONEncoder.DateEncodingStrategy {
+public extension JSONEncoder.DateEncodingStrategy {
   static let iso8601withFractionalSeconds = custom {
     var container = $1.singleValueContainer()
     try container.encode(Formatter.iso8601withFractionalSeconds.string(from: $0))

@@ -1,17 +1,27 @@
 import Foundation
-import RxPackage
+import RxSwift
+import InjectPropertyWrapper
 
 public struct GetLoginUser: UseCase {
-  typealias ReturnType = User
-  
-  struct Params {
-    let loginId: String
+  // MARK: - Parameters
+  public struct Params {
+    let loginID: String
     let password: String
-  }
-  
-  func execute(params: Params) -> Single<User> {
     
+    public init(loginID: String, password: String) {
+      self.loginID = loginID
+      self.password = password
+    }
   }
   
+  // MARK: - Inject
+  @Inject private var repository: LoginRepository
+  
+  // MARK: - Initialize
   public init() {}
+  
+  // MARK: - Implementation
+  public func call(params: Params) -> Single<User> {
+    repository.requestLoginUser(params.loginID, params.password)
+  }
 }

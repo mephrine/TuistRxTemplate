@@ -2,14 +2,18 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project
-    .framework(name: "DesignSystem",
-               packages: [
-                .UserInterface.ResourcePackage,
-               ],
-               dependencies: [
-                .SPM.UserInterface.ResourcePackage,
-                .SPM.FlexLayout,
-                .SPM.PinLayout,
-                .SPM.SnapKit,
-               ],
-               hasDemoApp: true)
+  .framework(name: "DesignSystem",
+             packages: [
+              .UserInterface.ResourcePackage,
+              .PinLayout,
+              .SnapKit,
+              .Kingfisher,
+             ],
+             dependencies: [
+              .Framework.FlexLayout,
+              .SPM.UserInterface.ResourcePackage,
+              .SPM.PinLayout,
+              .SPM.SnapKit,
+              .SPM.Kingfisher,
+             ],
+             hasDemoApp: true)

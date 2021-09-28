@@ -4,9 +4,9 @@ import ProjectDescriptionHelpers
 let project = Project
     .framework(name: "RxPresentation",
                packages: [
-                .RxViewController
+                .RxFlow
                ],
                dependencies: [
-                .Carthage.RxFlow,
-                .SPM.RxViewController,
+                .SPM.RxFlow,
+                .Framework.RxViewController,
                ])

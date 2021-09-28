@@ -8,9 +8,6 @@ public extension ProjectDescription.Path {
   static func relativeToModule(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Modules/\(pathString)")
   }
-  static func relativeToCore(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Core/\(pathString)")
-  }
   static func relativeToSections(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/\(pathString)")
   }
@@ -18,7 +15,7 @@ public extension ProjectDescription.Path {
     return .relativeToRoot("Projects/UserInterface/\(pathString)")
   }
   static func relativeToNetwork(_ pathString: String) -> Self {
-    return .relativeToRoot("Projects/Modules/Network/\(pathString)")
+    return .relativeToRoot("Projects/Network/\(pathString)")
   }
   static func relativeToLocalModule(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/Modules/Local/\(pathString)")
@@ -53,9 +50,6 @@ extension TargetDependency {
   }
   static func network(name: String) -> Self {
     return .project(target: name, path: .relativeToNetwork(name))
-  }
-  static func core(name: String) -> Self {
-    return .project(target: name, path: .relativeToCore(name))
   }
   static func resource(name: String) -> Self {
     return .project(target: name, path: .relativeToResource(name))

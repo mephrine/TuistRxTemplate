@@ -28,8 +28,8 @@ class AppFlow: Flow {
     switch step {
     case .initApp:
       return self.routerToLogin()
-//    case .goMain:
-//      return self.routerToMain()
+    case .goToMain:
+      return self.routerToMain()
     default:
       return .none
     }
@@ -38,23 +38,19 @@ class AppFlow: Flow {
   
   private func routerToLogin() -> FlowContributors {
     let loginViewController = LoginViewController()
-    let loginViewModel = LoginViewModel()
     self.rootViewController.setViewControllers([loginViewController], animated: false)
     
-    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: loginViewController, withNextStepper: loginViewModel))
+    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: loginViewController, withNextStepper: loginViewController.viewModel))
   }
   
-  // MainFlow로 이동하기.
-//  private func routerToMain() -> FlowContributors {
-//    let mainFlow = MainFlow(service: self.service)
-//    Flows.whenReady(flow1: mainFlow) { [unowned self] root in
-//      Async.main {
-//        root.modalPresentationStyle = .fullScreen
-//        self.rootViewController.present(root, animated: ANIMATION_ROOT_TRANSITION)
-//      }
-//    }
-//    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainFlow, withNextStepper: OneStepper(withSingleStep: AppStep.goMain)))
-//  }
+  private func routerToMain() -> FlowContributors {
+    let mainFlow = MainFlow()
+    Flows.whenReady(flow1: mainFlow) { [unowned self] root in
+      root.modalPresentationStyle = .fullScreen
+      self.rootViewController.present(root, animated: false)
+    }
+    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainFlow, withNextStepper: OneStepper(withSingleStep: AppStep.goToMain)))
+  }
 }
 
 class AppStepper: Stepper {

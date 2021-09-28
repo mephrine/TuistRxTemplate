@@ -4,7 +4,7 @@ import ProjectDescriptionHelpers
 let project = Project
     .framework(name: "CoreKit",
                dependencies: [
-                .Project.Module.NetworkAPIKit,
+                .Project.Network.Service,
                 .Project.Module.UtilityKit,
                 .Project.Module.RxPackage,
                 .Project.Module.RxPresentation,

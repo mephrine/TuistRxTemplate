@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import RxPackage
+import RxSwift
 
-protocol UseCase {
+public protocol UseCase {
   associatedtype ReturnType
   associatedtype Params
   
-  func execute(params: Params) -> Single<ReturnType>
+  func call(params: Params) -> Single<ReturnType>
 }
