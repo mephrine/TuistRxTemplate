@@ -9,11 +9,12 @@
 // Reference: RIBsReactorKit
 
 import Foundation
+import Then
 
 public extension Formatter {
-  static let iso8601withFractionalSeconds = ISO8601DateFormatter().builder
-    .formatOptions([.withInternetDateTime, .withFractionalSeconds])
-    .build()
+  static let iso8601withFractionalSeconds = ISO8601DateFormatter().then {
+    $0.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+  }
 }
 
 public extension JSONDecoder.DateDecodingStrategy {

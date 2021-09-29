@@ -6,18 +6,18 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxPackage
-import RxPresentation
-
+import RxFlow
+import Logger
 
 class MainFlow: Flow {
   var root: Presentable {
     return self.rootViewController
   }
   
-  private lazy var rootViewController: BaseNavigationController = {
-    let viewController = BaseNavigationController()
+  private lazy var rootViewController: UINavigationController = {
+    let viewController = UINavigationController()
     viewController.setNavigationBarHidden(false, animated: false)
     return viewController
   }()
@@ -32,18 +32,17 @@ class MainFlow: Flow {
     guard let step = step as? AppStep else { return .none }
     
     switch step {
-    case .goMain:
-      return routerToMain()
+    case .backToLogin:
+      return routerToGoBackLogin()
     default:
       return .none
     }
   }
   
-  private func routerToMain() -> FlowContributors {
-    let mainViewController = MainViewController()
-    self.rootViewController.setViewControllers([mainViewController], animated: false)
+  private func routerToGoBackLogin() -> FlowContributors {
+    self.rootViewController.dismiss(animated: true, completion: nil)
     
-    return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainViewController, withNextStepper: mainViewModel.viewModel))
+    return .none
   }
 }
 

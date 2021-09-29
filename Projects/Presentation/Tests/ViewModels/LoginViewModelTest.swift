@@ -32,15 +32,17 @@ public final class LoginViewModel: ViewActionTransformable, HasDisposeBag, Stepp
   // MARK: - Transformation
   public func transform(action: Action) -> State {
     let idText = action.typeedIDTextField
-      .do(onNext: { [weak self] value in
-        guard let self = self, let idValue = value else { return }
-        self.id.onNext(idValue)
+      .withUnretained(self)
+      .do(onNext: { owner, value in
+        guard let idValue = value else { return }
+        owner.id.onNext(idValue)
       })
         
     let passwordText = action.typedPassWordTextField
-      .do(onNext: { [weak self] value in
-        guard let self = self, let idValue = value else { return }
-        self.password.onNext(idValue)
+      .withUnretained(self)
+      .do(onNext: { owner, value in
+        guard let idValue = value else { return }
+        owner.password.onNext(idValue)
       })
           
     let loginButtonEnabled = Observable.combineLatest(

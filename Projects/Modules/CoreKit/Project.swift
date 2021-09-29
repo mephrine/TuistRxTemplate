@@ -7,7 +7,6 @@ let project = Project
                 .Project.Network.Service,
                 .Project.Module.UtilityKit,
                 .Project.Module.RxPackage,
-                .Project.Module.RxPresentation,
                 .Project.Module.ThirdPartyLibraryManager,
                ],
                hasDemoApp: true)

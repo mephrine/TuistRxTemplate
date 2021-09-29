@@ -5,7 +5,6 @@ import InjectPropertyWrapper
 import NetworkAPIKit
 import UtilityKit
 
-
 public protocol LoginRemoteDataSource {
   func requestLogin(loginID: String, password: String) -> Single<UserModel>
 }

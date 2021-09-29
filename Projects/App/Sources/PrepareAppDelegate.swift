@@ -8,11 +8,14 @@
 
 import Foundation
 import ThirdPartyLibraryManager
-import ThirdPartyDynamicLibraryPluginManager
 import InjectManager
 
-struct PrepareAppDelegateService {
+struct PrepareAppDelegate {
     func load() {
-        InjectContainerManager().register()
+      InjectService().register()
+      InjectDataSource().register()
+      InjectRepository().register()
+      InjectUseCase().register()
+      InjectViewModel().register()
     }
 }

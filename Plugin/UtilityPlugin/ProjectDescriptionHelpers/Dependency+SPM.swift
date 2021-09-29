@@ -17,7 +17,8 @@ extension Package {
 public extension TargetDependency.SPM {
   static let Kingfisher = TargetDependency.swiftPackageManager(name: "Kingfisher")
   static let Moya = TargetDependency.package(product: "Moya")
-  static let Reachability = TargetDependency.package(product: "Reachability")
+  static let Alamofire = TargetDependency.package(product: "Alamofire")
+//  static let Reachability = TargetDependency.package(product: "Reachability")
 }
 
 
@@ -85,13 +86,14 @@ public extension Package {
   static let Reusable = Package.package(url: "https://github.com/AliSoftware/Reusable.git", .upToNextMajor(from: "4.1.2"))
   
   
-  static let RxSwift = Package.package(url: "https://github.com/ReactiveX/RxSwift.git", .branch("main"))
+  static let RxSwift = Package.package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.2.0"))
   static let RxSwiftExt = Package.package(url: "https://github.com/RxSwiftCommunity/RxSwiftExt.git", .branch("main"))
+  static let Alamofire = Package.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
   static let Moya = Package.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
-  static let Reachability = Package.package(url: "https://github.com/ashleymills/Reachability.swift", .upToNextMajor(from: "5.1.0"))
+//  static let Reachability = Package.package(url: "https://github.com/ashleymills/Reachability.swift", .upToNextMajor(from: "5.1.0"))
   static let RxReachability = Package.package(url: "https://github.com/RxSwiftCommunity/RxReachability", .upToNextMajor(from: "1.2.1"))
   static let RxFlow = Package.package(url: "https://github.com/RxSwiftCommunity/RxFlow.git",  .upToNextMajor(from: "2.10.0"))
-  static let RxDataSources = Package.package(url: "https://github.com/RxSwiftCommunity/RxDataSources.git",  .upToNextMajor(from: "4.0.0"))
+  static let RxDataSources = Package.package(url: "https://github.com/RxSwiftCommunity/RxDataSources.git",  .upToNextMajor(from: "5.0.2"))
 }
 
 // MARK: - Develop Tool

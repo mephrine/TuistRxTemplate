@@ -27,7 +27,7 @@ public final class LoginViewModel: ViewActionTransformable, HasDisposeBag, Stepp
   @Inject private var getCachingLoginID: GetCacingLoginID
   
   // MARK: - Properties
-  public var steps: PublishRelay<Step>
+  public var steps = PublishRelay<Step>()
   var disposeBag = DisposeBag()
   private let id = BehaviorSubject<String>(value: "")
   private let password = BehaviorSubject<String>(value: "")
@@ -41,9 +41,9 @@ extension LoginViewModel {
   public func transform(action: Action) -> State {
     let cachingLoginID = action.viewWillAppear
       .observe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
-      .flatMap { [weak self] _ -> Observable<String> in
-        guard let this = self else { return .just("") }
-        return this.requestCachingLoginID()
+      .withUnretained(self)
+      .flatMap { owner, _ -> Observable<String> in
+        return owner.requestCachingLoginID()
       }.asDriver(onErrorJustReturn: "")
     
     let loginButtonEnabled = Observable.combineLatest(

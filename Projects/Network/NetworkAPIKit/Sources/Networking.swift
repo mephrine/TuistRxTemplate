@@ -1,3 +1,4 @@
+import Alamofire
 import Moya
 import RxMoya
 import RxSwift
@@ -11,7 +12,7 @@ final public class Networking<Target: TargetType>: MoyaProvider<Target> {
     retryCount: Int = 3,
     file: String = #file,
     function: String = #function,
-    line: UInt = #line
+    line: Int = #line
   ) -> Single<Response> {
     #if DEBUG
       let requestString = "\(target.method.rawValue) \(target.path)"

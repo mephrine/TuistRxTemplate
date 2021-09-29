@@ -6,7 +6,7 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 private func appDelegateClassName() -> String {
   let isTesting = NSClassFromString("XCTestCase") != nil

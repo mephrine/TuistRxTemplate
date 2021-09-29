@@ -6,7 +6,6 @@ let project = Project
                    dependencies: [
                     .Project.Domain,
                     .Project.Module.ThirdPartyLibraryManager,
-                    .Project.Module.RxPresentation,
                     .Project.Module.RxPackage,
                     .Project.UserInterface.DesignSystem,
                     .Project.Module.UtilityKit,

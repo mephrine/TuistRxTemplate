@@ -3,8 +3,8 @@ import RxRelay
 import RxFlow
 import Logger
 
-class AppFlow: Flow {
-  var root: Presentable {
+public final class AppFlow: Flow {
+  public var root: Presentable {
     return self.rootViewController
   }
   
@@ -15,14 +15,14 @@ class AppFlow: Flow {
   }()
   
   
-  init() {
+  public init() {
   }
   
   deinit {
     Logger.d("deinit AppFlow")
   }
   
-  func navigate(to step: Step) -> FlowContributors {
+  public func navigate(to step: Step) -> FlowContributors {
     guard let step = step as? AppStep else { return .none }
     
     switch step {
@@ -45,25 +45,27 @@ class AppFlow: Flow {
   
   private func routerToMain() -> FlowContributors {
     let mainFlow = MainFlow()
-    Flows.whenReady(flow1: mainFlow) { [unowned self] root in
-      root.modalPresentationStyle = .fullScreen
-      self.rootViewController.present(root, animated: false)
+    Flows.use(mainFlow, when: .created) { [unowned self] root in
+      DispatchQueue.main.async { [unowned root] in
+        root.modalPresentationStyle = .fullScreen
+        self.rootViewController.present(root, animated: false)
+      }
     }
     return .one(flowContributor: FlowContributor.contribute(withNextPresentable: mainFlow, withNextStepper: OneStepper(withSingleStep: AppStep.goToMain)))
   }
 }
 
-class AppStepper: Stepper {
-  let steps = PublishRelay<Step>()
+public final class AppStepper: Stepper {
+  public let steps = PublishRelay<Step>()
   
-  init() {
+  public init() {
   }
   
-  var initialStep: Step {
+  public var initialStep: Step {
     return AppStep.initApp
   }
   
-  func readyToEmitSteps() {
+  public func readyToEmitSteps() {
     
   }
 }

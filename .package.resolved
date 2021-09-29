@@ -74,6 +74,15 @@
         }
       },
       {
+        "package": "Reusable",
+        "repositoryURL": "https://github.com/AliSoftware/Reusable.git",
+        "state": {
+          "branch": null,
+          "revision": "18674709421360e210c2ecd4e8e08b217d4ea61d",
+          "version": "4.1.2"
+        }
+      },
+      {
         "package": "RxFlow",
         "repositoryURL": "https://github.com/RxSwiftCommunity/RxFlow.git",
         "state": {
@@ -95,9 +104,9 @@
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
-          "branch": "main",
-          "revision": "dcc4795e2146c9207924f19592390b88354889ba",
-          "version": null
+          "branch": null,
+          "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
+          "version": "6.2.0"
         }
       },
       {

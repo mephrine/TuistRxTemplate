@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import UIKit
 import DesignSystem
+import InjectPropertyWrapper
 
 final class MainViewController: BaseViewController, HasViewModel {
   // MARK: - Constants
@@ -50,7 +51,7 @@ final class MainViewController: BaseViewController, HasViewModel {
   }
   
   // MARK: - Inject
-  @Inject private(set) var viewModel: MainViewModel
+  @Inject var viewModel: MainViewModel
   
   
   // MARK: - UI
@@ -76,6 +77,10 @@ final class MainViewController: BaseViewController, HasViewModel {
     setupUI()
     bindUI()
   }
+  
+  override func setupConstraints() {
+    layout()
+  }
 }
 
 
@@ -94,7 +99,7 @@ extension MainViewController {
     view.addSubview(backButton)
   }
   
-  override func setupConstraints() {
+  private func layout() {
     nameTitleLabel.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide).offset(UI.emailLabelTopMargin)
       $0.leading.equalToSuperview().offset(UI.horizontalMargin)
@@ -102,7 +107,7 @@ extension MainViewController {
     }
     
     userNameLabel.snp.makeConstraints {
-      $0.top.equalTo(emailLabel.snp.bottom).offset(UI.viewVerticalSpacing)
+      $0.top.equalTo(nameTitleLabel.snp.bottom).offset(UI.viewVerticalSpacing)
       $0.leading.equalToSuperview().offset(UI.horizontalMargin)
       $0.trailing.equalToSuperview().offset(-UI.horizontalMargin)
     }

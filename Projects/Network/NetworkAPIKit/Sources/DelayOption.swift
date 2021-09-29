@@ -10,7 +10,7 @@
 import Foundation
 import RxSwift
 
-enum DelayOption {
+public enum DelayOption {
   case immediate
   case constant(time: Double)
   case exponential(initial: Double, multiplier: Double, maxDelay: Double = 32)

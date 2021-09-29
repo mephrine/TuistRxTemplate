@@ -7,13 +7,11 @@ let project = Project
               .UserInterface.ResourcePackage,
               .PinLayout,
               .SnapKit,
-              .Kingfisher,
              ],
              dependencies: [
               .Framework.FlexLayout,
               .SPM.UserInterface.ResourcePackage,
               .SPM.PinLayout,
               .SPM.SnapKit,
-              .SPM.Kingfisher,
              ],
              hasDemoApp: true)

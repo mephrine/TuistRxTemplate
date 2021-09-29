@@ -5,22 +5,26 @@ import UtilityPlugin
 let project = Project
     .framework(name: "ThirdPartyLibraryManager",
                packages: [
+                .Alamofire,
                 .Moya,
                 .Swinject,
                 .InjectPropertyWrapper,
                 .Logger,
                 .Then,
-                .Reachability,
-                .RxReachability,
+//                .Reachability,
+                .Kingfisher,
+                .Reusable
                ],
                dependencies: [
 //                TargetDependency.Framework.Firebase,
-                [.SPM.RxMoya,
+                [.SPM.Alamofire,
+                 .SPM.RxMoya,
                  .SPM.Moya,
                  .SPM.Swinject,
                  .SPM.InjectPropertyWrapper,
                  .SPM.Logger,
                  .SPM.Then,
-                 .SPM.Reachability,
-                 .SPM.RxReachability],
+//                 .SPM.Reachability,
+                 .SPM.Kingfisher,
+                 .SPM.Reusable],
                ].flatMap { $0 })

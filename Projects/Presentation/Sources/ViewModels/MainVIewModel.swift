@@ -14,7 +14,7 @@ import UtilityKit
 
 public final class MainViewModel: Stepper {
   // MARK: - Properties
-  public var steps: PublishRelay<Step>
+  public var steps = PublishRelay<Step>()
   
   // MARK: - Initialize
   public init() {}

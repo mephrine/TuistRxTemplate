@@ -28,6 +28,6 @@ public extension TargetDependency {
   }
   
   static func rx(name: String) -> Self {
-    .framework(path: .relativeToRoot("Vendor/Rx/\(name).framework"))
+    .xcframework(path: .relativeToRoot("Vendor/Rx/\(name).xcframework"))
   }
 }

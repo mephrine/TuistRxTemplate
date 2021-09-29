@@ -5,13 +5,13 @@
 //  Created by Mephrine on 2021/09/27.
 //  Copyright © 2021 deepfine. All rights reserved.
 //
-// Refrence: RIBsReactorKi
-import Reachability
+// Refrence: RIBsReactorKit
 import RxReachability
+import Reachability
 import RxRelay
 import RxSwift
 
-extension PrimitiveSequence {
+public extension PrimitiveSequence {
   /**
    Retries the source observable sequence on error using a provided retry
    strategy.
