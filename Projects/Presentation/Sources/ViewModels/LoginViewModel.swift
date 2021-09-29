@@ -24,7 +24,7 @@ public final class LoginViewModel: ViewActionTransformable, HasDisposeBag, Stepp
   
   // MARK: - Inject
   @Inject private var getLoginUser: GetLoginUser
-  @Inject private var getCachingLoginID: GetCacingLoginID
+  @Inject private var getCachingLoginID: GetCachingLoginID
   
   // MARK: - Properties
   public var steps = PublishRelay<Step>()

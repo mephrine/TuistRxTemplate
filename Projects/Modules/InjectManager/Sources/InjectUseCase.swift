@@ -19,5 +19,8 @@ public struct InjectUseCase {
     container.register(GetLoginUser.self) { _ in
       GetLoginUser()
     }
+    container.register(GetCachingLoginID.self) { _ in
+      GetCachingLoginID()
+    }
   }
 }

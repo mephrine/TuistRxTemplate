@@ -1,9 +1,11 @@
 import UIKit
+import RxPackage
 import RxFlow
 import RxSwift
 import Logger
 import Presentation
 import Reachability
+import InjectManager
 
 // MARK: - AppDelegate
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,20 +19,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
   ) -> Bool {
     setReachability()
-    PrepareAppDelegate().load()
-    
-    let window = UIWindow(frame: UIScreen.main.bounds)
-    self.window = window
+    registerInjection()
     prepareNavigation()
-    //    let launchRouter = RootBuilder(dependency: AppComponent()).build()
-    //    self.launchRouter = launchRouter
-    //    launchRouter.launch(from: window)
 #if DEBUG
     PrepareDevelopToolService().load()
 #endif
     return true
   }
   private func prepareNavigation() {
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    
     coordinator.rx.didNavigate
       .subscribe(onNext: { flow, step in
         Logger.d("did navigate to flow : \(flow), step : \(step)")
@@ -52,5 +50,13 @@ private extension AppDelegate {
     } catch {
       Logger.e(error)
     }
+  }
+  
+  func registerInjection() {
+    InjectService().register()
+    InjectDataSource().register()
+    InjectRepository().register()
+    InjectUseCase().register()
+    InjectViewModel().register()
   }
 }

@@ -44,6 +44,7 @@ let targets: [Target] = [
         dependencies: [
           .Project.Presentation,
           .Project.Module.InjectManager,
+          .Project.Module.RxPackage,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ]),
   .init(name: "\(targetDevName)",
@@ -63,6 +64,7 @@ let targets: [Target] = [
           .Project.Presentation,
           .Project.Module.InjectManager,
           .Project.Module.DevelopTool,
+          .Project.Module.RxPackage,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ]),
   .init(name: "\(targetTestsName)",

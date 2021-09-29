@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import InjectPropertyWrapper
 
-public struct GetCacingLoginID: UseCase {
+public struct GetCachingLoginID: UseCase {
   // MARK: - Parameters
   public typealias Params = Void
   

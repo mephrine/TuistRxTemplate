@@ -18,7 +18,7 @@ public struct LoginRemoteDataSourceImpl: LoginRemoteDataSource {
   
   // MARK: - Implementation
   public func requestLogin(loginID: String, password: String) -> Single<UserModel> {
-    service.rx.request(.login(loginID: loginID, password: password))
+    service.request(.login(loginID: loginID, password: password))
       .map(to: ResultDTO<UserModel>.self)
       .asObservable()
       .flatMap({ response -> Observable<ResultDTO<UserModel>> in
