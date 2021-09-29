@@ -11,8 +11,8 @@ public extension TargetDependency.Framework {
     .firebase(name: "FirebaseMessaging"),
   ]
   
-  static let RxViewController: TargetDependency =
-    .rx(name: "RxViewController")
+//  static let RxViewController: TargetDependency =
+//    .rx(name: "RxViewController")
   
   static let FlexLayout: TargetDependency =
     .designSystem(name: "FlexLayout")
@@ -27,7 +27,7 @@ public extension TargetDependency {
     .xcframework(path: .relativeToRoot("Vendor/DesignSystem/\(name).xcframework"))
   }
   
-  static func rx(name: String) -> Self {
-    .xcframework(path: .relativeToRoot("Vendor/Rx/\(name).xcframework"))
-  }
+//  static func rx(name: String) -> Self {
+//    .xcframework(path: .relativeToRoot("Vendor/Rx/\(name).xcframework"))
+//  }
 }

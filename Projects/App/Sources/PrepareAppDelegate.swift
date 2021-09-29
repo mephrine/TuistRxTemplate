@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ThirdPartyLibraryManager
 import InjectManager
 
 struct PrepareAppDelegate {

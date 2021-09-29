@@ -43,8 +43,6 @@ let targets: [Target] = [
         actions: actions,
         dependencies: [
           .Project.Presentation,
-          .Project.Domain,
-          .Project.Data,
           .Project.Module.InjectManager,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,
         ]),
@@ -63,8 +61,6 @@ let targets: [Target] = [
         actions: actions,
         dependencies: [
           .Project.Presentation,
-          .Project.Domain,
-          .Project.Data,
           .Project.Module.InjectManager,
           .Project.Module.DevelopTool,
           .Project.Module.ThirdPartyDynamicLibraryPluginManager,

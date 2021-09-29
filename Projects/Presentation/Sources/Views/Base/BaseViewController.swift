@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import ThirdPartyLibraryManager
 
-class BaseViewController:
+public class BaseViewController:
   UIViewController,
   HasSetupConstraints,
   HasDisposeBag
@@ -16,7 +16,7 @@ class BaseViewController:
   
   // MARK: - Initialization & Deinitialization
 
-  init() {
+  public init() {
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -31,7 +31,7 @@ class BaseViewController:
 
   // MARK: - View Lifecycle
 
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     view.setNeedsUpdateConstraints()
   }
@@ -39,7 +39,7 @@ class BaseViewController:
   // MARK: - Layout Constraints
   private(set) var didSetupConstraints: Bool = false
 
-  override func updateViewConstraints() {
+  public override func updateViewConstraints() {
     setupConstraintsIfNeeded()
     super.updateViewConstraints()
   }

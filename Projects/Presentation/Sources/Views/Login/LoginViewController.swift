@@ -1,7 +1,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RxViewController
 import UIKit
 import Then
 import SnapKit
@@ -10,7 +9,7 @@ import InjectPropertyWrapper
 import UtilityKit
 import Logger
 
-final class LoginViewController: BaseViewController, HasViewModel {
+final public class LoginViewController: BaseViewController, HasViewModel {
   // MARK: - Constants
   private enum UI {
     static let buttonHeight: CGFloat = 50
@@ -88,7 +87,7 @@ final class LoginViewController: BaseViewController, HasViewModel {
 //  }
   
   // MARK: - View Life Cycle
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
     setupNavigationBar()
     setupUI()
@@ -199,3 +198,18 @@ extension LoginViewController {
     present(failedLoginAlert, animated: true, completion: nil)
   }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import UIKit
+import DesignSystem
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct LoginViewController_Preview: PreviewProvider {
+  static var previews: some View {
+    UIViewControllerPreview {
+      LoginViewController()
+    }
+  }
+}
+#endif

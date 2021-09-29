@@ -9,13 +9,16 @@
 #if canImport(SwiftUI) && DEBUG
 import UIKit
 import DesignSystem
+import SwiftUI
+import Presentation
 
-struct SetttingsViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        UIViewControllerPreview {
-            LoginViewController()
-        }
+@available(iOS 13.0, *)
+struct LoginViewController_Preview: PreviewProvider {
+  static var previews: some View {
+    UIViewControllerPreview {
+      LoginViewController()
     }
+  }
 }
 #endif
 

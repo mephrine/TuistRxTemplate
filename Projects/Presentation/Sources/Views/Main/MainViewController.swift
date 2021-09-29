@@ -12,7 +12,7 @@ import UIKit
 import DesignSystem
 import InjectPropertyWrapper
 
-final class MainViewController: BaseViewController, HasViewModel {
+final public class MainViewController: BaseViewController, HasViewModel {
   // MARK: - Constants
   private enum UI {
     static let buttonHeight: CGFloat = 50
@@ -71,7 +71,7 @@ final class MainViewController: BaseViewController, HasViewModel {
   }
   
   // MARK: - View Life Cycle
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     setupNavigationBar()
     setupUI()

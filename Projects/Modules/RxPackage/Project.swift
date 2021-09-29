@@ -16,5 +16,5 @@ let project = Project
                 .SPM.RxSwift,
                 .SPM.RxSwiftExt,
                 .SPM.RxReachability,
-                .Framework.RxViewController,
+//                .Framework.RxViewController,
                ])
