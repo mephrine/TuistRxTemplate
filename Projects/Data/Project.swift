@@ -5,5 +5,5 @@ let project = Project
     .staticFramework(name: "Data",
                      dependencies: [
                       .Project.Domain,
-                      .Project.Module.CoreKit,
+                      .Project.Module.CoreKit
                      ])

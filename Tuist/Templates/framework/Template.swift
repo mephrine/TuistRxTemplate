@@ -37,6 +37,6 @@ let template = Template(
     files: [
         .string(path: "\(nameAttribute)/Sources/\(nameAttribute).swift", contents: exampleContents),
         .string(path: "\(nameAttribute)/Tests/\(nameAttribute)Tests.swift", contents: testContents),
-        .file(path: "\(nameAttribute)/Project.swift", templatePath: "project.stencil"),
+        .file(path: "\(nameAttribute)/Project.swift", templatePath: "project.stencil")
     ]
 )

@@ -13,11 +13,15 @@ import Presentation
 
 public struct InjectViewModel {
   public init() {}
-  
+
   public func register() {
     let container = InjectContainer.container
     container.register(LoginViewModel.self) { _ in
       LoginViewModel()
+    }
+    
+    container.register(MainViewModel.self) { _ in
+      MainViewModel()
     }
   }
 }

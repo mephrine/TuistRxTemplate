@@ -1,4 +1,4 @@
-//___FILEHEADER___
+// ___FILEHEADER___
 
 @testable import ___PROJECTNAME___
 import XCTest

@@ -8,6 +8,7 @@ let project = Project
                       .Project.Network.APIKit
                      ],
                      infoPlist: [
-                       "ApiUrl": "$(API_URL)",
-                       "SocketUrl": "$(SOCKET_URL)"
+                       "NSAppTransportSecurity": .dictionary([
+                        "NSAllowsArbitraryLoads": .boolean(true)
+                       ])
                      ])

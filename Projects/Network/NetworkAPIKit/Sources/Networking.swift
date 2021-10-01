@@ -1,7 +1,5 @@
-import Alamofire
-import Moya
-import RxMoya
 import RxSwift
+import Moya
 import Logger
 
 final public class Networking<Target: TargetType>: MoyaProvider<Target> {
@@ -16,7 +14,7 @@ final public class Networking<Target: TargetType>: MoyaProvider<Target> {
   ) -> Single<Response> {
     #if DEBUG
       let requestString = "\(target.method.rawValue) \(target.path)"
-      let request = rx.request(target)
+    let request = rx.request(target)
         .filterSuccessfulStatusCodes()
         .do(
           onSuccess: { response in

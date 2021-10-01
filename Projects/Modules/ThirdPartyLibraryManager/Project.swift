@@ -5,7 +5,7 @@ import UtilityPlugin
 let project = Project
     .framework(name: "ThirdPartyLibraryManager",
                packages: [
-                .Alamofire,
+//                .Alamofire,
                 .Moya,
                 .Swinject,
                 .InjectPropertyWrapper,
@@ -17,8 +17,9 @@ let project = Project
                ],
                dependencies: [
 //                TargetDependency.Framework.Firebase,
-                [.SPM.Alamofire,
-                 .SPM.RxMoya,
+                [
+//                  .SPM.Alamofire,
+//                 .SPM.RxMoya,
                  .SPM.Moya,
                  .SPM.Swinject,
                  .SPM.InjectPropertyWrapper,
@@ -26,5 +27,5 @@ let project = Project
                  .SPM.Then,
 //                 .SPM.Reachability,
                  .SPM.Kingfisher,
-                 .SPM.Reusable],
+                 .SPM.Reusable]
                ].flatMap { $0 })

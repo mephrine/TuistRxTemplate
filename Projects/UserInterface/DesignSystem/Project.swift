@@ -6,12 +6,12 @@ let project = Project
              packages: [
               .UserInterface.ResourcePackage,
               .PinLayout,
-              .SnapKit,
+              .SnapKit
              ],
              dependencies: [
               .Framework.FlexLayout,
               .SPM.UserInterface.ResourcePackage,
               .SPM.PinLayout,
-              .SPM.SnapKit,
+              .SPM.SnapKit
              ],
              hasDemoApp: true)

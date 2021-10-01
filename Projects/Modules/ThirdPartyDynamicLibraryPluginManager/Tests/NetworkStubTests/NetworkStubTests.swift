@@ -1,4 +1,4 @@
-    import XCTest
+import XCTest
     @testable import NetworkStub
 
     final class NetworkStubTests: XCTestCase {

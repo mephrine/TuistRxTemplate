@@ -14,10 +14,10 @@ import NetworkService
 
 public struct InjectService {
   public init() {}
-  
+
   public func register() {
     let container = InjectContainer.container
-    
+
     container.register(NetworkAPIKit.Networking<LoginService>.self) { _ in
       Networking<LoginService>()
     }

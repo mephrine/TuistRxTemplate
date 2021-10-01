@@ -21,7 +21,6 @@ public extension TargetDependency.SPM {
 //  static let Reachability = TargetDependency.package(product: "Reachability")
 }
 
-
 // MARK: - Rx
 public extension TargetDependency.SPM {
   static let RxSwift = TargetDependency.package(product: "RxSwift")
@@ -31,9 +30,8 @@ public extension TargetDependency.SPM {
   static let RxFlow = TargetDependency.package(product: "RxFlow")
   static let RxDataSources = TargetDependency.package(product: "RxDataSources")
   static let RxReachability = TargetDependency.package(product: "RxReachability")
-  static let RxMoya = TargetDependency.package(product: "RxMoya")
+//  static let RxMoya = TargetDependency.package(product: "RxMoya")
 }
-
 
 // MARK: - Dependecy Injection
 public extension TargetDependency.SPM {
@@ -68,12 +66,12 @@ public extension Package {
 //  static let RxViewController = Package.package(url: "https://github.com/devxoul/RxViewController.git", .branch("master"))
 }
 
-//public extension Package {
+// public extension Package {
 //  static let InjectPropertyWrapper = Package.package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master"))
 //  static let Swinject = Package.package(url: "https://github.com/Swinject/Swinject.git", .branch("master"))
 //  static let Kingfisher = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
 //  static let Logger = Package.local(path: .relativeToRoot("Projects/Modules/Local/Logger"))
-//}
+// }
 
 public extension Package {
   static let InjectPropertyWrapper = Package.package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master"))
@@ -84,23 +82,22 @@ public extension Package {
   static let Kingfisher = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
   static let Then = Package.package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "2.7.0"))
   static let Reusable = Package.package(url: "https://github.com/AliSoftware/Reusable.git", .upToNextMajor(from: "4.1.2"))
-  
-  
+
   static let RxSwift = Package.package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.2.0"))
   static let RxSwiftExt = Package.package(url: "https://github.com/RxSwiftCommunity/RxSwiftExt.git", .branch("main"))
   static let Alamofire = Package.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
   static let Moya = Package.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
 //  static let Reachability = Package.package(url: "https://github.com/ashleymills/Reachability.swift", .upToNextMajor(from: "5.1.0"))
   static let RxReachability = Package.package(url: "https://github.com/RxSwiftCommunity/RxReachability", .upToNextMajor(from: "1.2.1"))
-  static let RxFlow = Package.package(url: "https://github.com/RxSwiftCommunity/RxFlow.git",  .upToNextMajor(from: "2.10.0"))
-  static let RxDataSources = Package.package(url: "https://github.com/RxSwiftCommunity/RxDataSources.git",  .upToNextMajor(from: "5.0.2"))
+  static let RxFlow = Package.package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", .upToNextMajor(from: "2.10.0"))
+  static let RxDataSources = Package.package(url: "https://github.com/RxSwiftCommunity/RxDataSources.git", .upToNextMajor(from: "5.0.2"))
 }
 
 // MARK: - Develop Tool
 public extension TargetDependency.SPM.DevelopTool {
   static let OHHTTPStubs = TargetDependency.swiftPackageManager(name: "OHHTTPStubs")
   static let OHHTTPStubsSwift = TargetDependency.swiftPackageManager(name: "OHHTTPStubsSwift")
-  static let ProxyNetworkStubPackage = TargetDependency.package(product:  "ProxyNetworkStubPackage")
+  static let ProxyNetworkStubPackage = TargetDependency.package(product: "ProxyNetworkStubPackage")
 }
 
 public extension Package.DevelopTool {

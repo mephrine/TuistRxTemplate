@@ -7,5 +7,5 @@ let project = Project
                     .Project.Module.CoreKit,
                     .Project.Data,
                     .Project.Domain,
-                    .Project.Presentation,
+                    .Project.Presentation
                    ])

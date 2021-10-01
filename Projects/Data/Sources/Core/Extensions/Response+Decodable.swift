@@ -10,16 +10,18 @@ import Foundation
 import Moya
 
 extension Response {
-  func map<T: Decodable>(to type:T.Type) throws -> T {
+  func map<T: Decodable>(to type: T.Type) throws -> T {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601withFractionalSeconds
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
     return try map(T.self, using: decoder, failsOnEmptyData: false)
   }
-  
-  func map<T: Decodable>(to type:[T.Type]) throws -> [T] {
+
+  func map<T: Decodable>(to type: [T.Type]) throws -> [T] {
     let decoder = JSONDecoder()
     decoder.dateDecodingStrategy = .iso8601withFractionalSeconds
-    
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+
     return try map([T].self, using: decoder, failsOnEmptyData: false)
   }
 }

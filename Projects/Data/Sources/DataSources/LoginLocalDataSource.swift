@@ -19,7 +19,7 @@ public protocol LoginLocalDataSource {
 public struct LoginLocalDataSourceImpl: LoginLocalDataSource {
   // MARK: - Initialize
   public init() {}
-  
+
   // MARK: - Implementation
   public func saveUserID(loginID: String) {
     UserDefaults.standard.do {
@@ -27,7 +27,7 @@ public struct LoginLocalDataSourceImpl: LoginLocalDataSource {
       $0.synchronize()
     }
   }
-  
+
   public func lastLoggedInUserID() -> Single<String> {
     Single<String>.create { single in
       let cachingLoginId = UserDefaults.standard.string(forKey: UserDefaultsKeys.loginID)

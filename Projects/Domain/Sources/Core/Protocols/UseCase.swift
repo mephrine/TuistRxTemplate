@@ -12,6 +12,6 @@ import RxSwift
 public protocol UseCase {
   associatedtype ReturnType
   associatedtype Params
-  
+
   func call(params: Params) -> Single<ReturnType>
 }

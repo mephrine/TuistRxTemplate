@@ -13,7 +13,7 @@ import Domain
 
 public struct InjectUseCase {
   public init() {}
-  
+
   public func register() {
     let container = InjectContainer.container
     container.register(GetLoginUser.self) { _ in

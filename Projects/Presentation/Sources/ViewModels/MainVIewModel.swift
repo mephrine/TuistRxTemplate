@@ -15,12 +15,17 @@ import UtilityKit
 public final class MainViewModel: Stepper {
   // MARK: - Properties
   public var steps = PublishRelay<Step>()
-  
+  public let userName = BehaviorSubject<String>(value: "")
+
   // MARK: - Initialize
   public init() {}
   
+  func initValue(parameter: String) {
+    userName.onNext(parameter)
+  }
+
   // MARK: - Route
-  func backButtonTapped() {
+  func logoutButtonTapped() {
     steps.accept(AppStep.backToLogin)
   }
 }

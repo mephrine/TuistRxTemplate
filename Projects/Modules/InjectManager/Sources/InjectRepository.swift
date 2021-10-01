@@ -14,7 +14,7 @@ import Domain
 
 public struct InjectRepository {
   public init() {}
-  
+
   public func register() {
     let container = InjectContainer.container
     container.register(LoginRepository.self) { _ in
@@ -22,4 +22,3 @@ public struct InjectRepository {
     }
   }
 }
-

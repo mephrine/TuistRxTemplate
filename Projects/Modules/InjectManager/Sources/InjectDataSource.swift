@@ -13,14 +13,14 @@ import Data
 
 public struct InjectDataSource {
   public init() {}
-  
+
   public func register() {
     let container = InjectContainer.container
-    
+
     container.register(LoginRemoteDataSource.self) { _ in
       LoginRemoteDataSourceImpl()
     }
-    
+
     container.register(LoginLocalDataSource.self) { _ in
       LoginLocalDataSourceImpl()
     }

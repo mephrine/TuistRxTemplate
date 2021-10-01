@@ -2,42 +2,30 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 import UtilityPlugin
 
-
-let appName = "MyApps"
-let targetName = "App"
-let targetDevName = "Dev\(targetName)"
-let targetTestsName = "\(targetDevName)Tests"
-let organizationName = "deepfine"
-let bundleId = "deepfine.ai.aron"
-let deploymentTarget: DeploymentTarget = .iOS(targetVersion: "12.0", devices: .iphone)
-
 let settings: Settings =
-  .init(base: ["CODE_SIGN_IDENTITY": "",
-               "CODE_SIGNING_REQUIRED": "NO"],
-        configurations: [
-          .debug(name: .dev,    xcconfig: .relativeToRoot("XCConfig/App/DevApp-DEV.xcconfig")),
-          .debug(name: .test,   xcconfig: .relativeToRoot("XCConfig/App/DevApp-TEST.xcconfig")),
-          .release(name: .prod, xcconfig: .relativeToRoot("XCConfig/App/DevApp-PROD.xcconfig")),
-          .debug(name: .dev,    xcconfig: .relativeToRoot("XCConfig/App/App-DEV.xcconfig")),
-          .debug(name: .test,   xcconfig: .relativeToRoot("XCConfig/App/App-TEST.xcconfig")),
-          .release(name: .prod, xcconfig: .relativeToRoot("XCConfig/App/App-PROD.xcconfig")),
-        ])
+  .init(base: Enviorment.baseSetting,
+        configurations:
+          [
+            .debug(name: .dev, xcconfig: .relativeToRoot("XCConfig/App/DevApp-DEV.xcconfig")),
+            .debug(name: .test, xcconfig: .relativeToRoot("XCConfig/App/DevApp-TEST.xcconfig")),
+            .release(name: .prod, xcconfig: .relativeToRoot("XCConfig/App/DevApp-PROD.xcconfig")),
+            .debug(name: .dev, xcconfig: .relativeToRoot("XCConfig/App/App-DEV.xcconfig")),
+            .debug(name: .test, xcconfig: .relativeToRoot("XCConfig/App/App-TEST.xcconfig")),
+            .release(name: .prod, xcconfig: .relativeToRoot("XCConfig/App/App-PROD.xcconfig"))
+          ])
 
 let actions: [TargetAction] = [
-  .swiftLint,
+  .swiftLint
 ]
 
 let targets: [Target] = [
-  .init(name: targetName,
+  .init(name: Enviorment.targetName,
         platform: .iOS,
         product: .app,
-        productName: appName,
-        bundleId: bundleId,
-        deploymentTarget: deploymentTarget,
-        infoPlist: .extendingDefault(with: [
-          "UIMainStoryboardFile": "",
-          "UILaunchStoryboardName": "LaunchScreen"
-        ]),
+        productName: Enviorment.appName,
+        bundleId: Enviorment.bundleId,
+        deploymentTarget: Enviorment.deploymentTarget,
+        infoPlist: .extendingDefault(with: Enviorment.appInfoPlist),
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         actions: actions,
@@ -45,18 +33,15 @@ let targets: [Target] = [
           .Project.Presentation,
           .Project.Module.InjectManager,
           .Project.Module.RxPackage,
-          .Project.Module.ThirdPartyDynamicLibraryPluginManager,
+          .Project.Module.ThirdPartyDynamicLibraryPluginManager
         ]),
-  .init(name: "\(targetDevName)",
+  .init(name: "\(Enviorment.targetDevName)",
         platform: .iOS,
         product: .app,
-        productName: "\(appName)_dev",
-        bundleId: "\(bundleId).dev",
-        deploymentTarget: deploymentTarget,
-        infoPlist: .extendingDefault(with: [
-          "UIMainStoryboardFile": "",
-          "UILaunchStoryboardName": "LaunchScreen"
-        ]),
+        productName: "\(Enviorment.appName)_dev",
+        bundleId: "\(Enviorment.bundleId).dev",
+        deploymentTarget: Enviorment.deploymentTarget,
+        infoPlist: .extendingDefault(with: Enviorment.appInfoPlist),
         sources: ["Sources/**", "DevSources/**"],
         resources: ["Resources/**"],
         actions: actions,
@@ -65,48 +50,48 @@ let targets: [Target] = [
           .Project.Module.InjectManager,
           .Project.Module.DevelopTool,
           .Project.Module.RxPackage,
-          .Project.Module.ThirdPartyDynamicLibraryPluginManager,
+          .Project.Module.ThirdPartyDynamicLibraryPluginManager
         ]),
-  .init(name: "\(targetTestsName)",
+  .init(name: "\(Enviorment.targetTestsName)",
         platform: .iOS,
         product: .unitTests,
-        bundleId: "\(bundleId).test",
-        deploymentTarget: deploymentTarget,
+        bundleId: "\(Enviorment.bundleId).test",
+        deploymentTarget: Enviorment.deploymentTarget,
         infoPlist: .default,
         sources: "Tests/**",
         dependencies: [
-          .target(name: "\(targetDevName)"),
+          .target(name: "\(Enviorment.targetDevName)"),
           .Carthage.Quick,
-          .Carthage.Nimble,
-        ]),
+          .Carthage.Nimble
+        ])
 ]
 
 let schemes: [Scheme] = [
-  .init(name: "\(targetDevName)-Develop",
+  .init(name: "\(Enviorment.targetDevName)-Develop",
         shared: true,
-        buildAction: BuildAction(targets: ["\(targetDevName)"]),
-        testAction: TestAction(targets: ["\(targetTestsName)"],
+        buildAction: BuildAction(targets: ["\(Enviorment.targetDevName)"]),
+        testAction: TestAction(targets: ["\(Enviorment.targetTestsName)"],
                                configurationName: .dev,
                                coverage: true),
         runAction: RunAction(configurationName: .dev),
         archiveAction: ArchiveAction(configurationName: .dev),
         profileAction: ProfileAction(configurationName: .dev),
         analyzeAction: AnalyzeAction(configurationName: .dev)),
-  .init(name: "\(targetName)-PROD",
+  .init(name: "\(Enviorment.targetName)-PROD",
         shared: true,
-        buildAction: BuildAction(targets: ["\(targetName)"]),
+        buildAction: BuildAction(targets: ["\(Enviorment.targetName)"]),
         testAction: nil,
         runAction: RunAction(configurationName: .prod),
         archiveAction: ArchiveAction(configurationName: .prod),
         profileAction: ProfileAction(configurationName: .prod),
-        analyzeAction: AnalyzeAction(configurationName: .prod)),
+        analyzeAction: AnalyzeAction(configurationName: .prod))
 ]
 
 // MARK: - Project
 
 let project: Project =
-  .init(name: targetName,
-        organizationName: organizationName,
+  .init(name: Enviorment.targetName,
+        organizationName: Enviorment.organizationName,
         settings: settings,
         targets: targets,
         schemes: schemes)

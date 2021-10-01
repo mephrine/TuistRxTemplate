@@ -4,5 +4,5 @@ import ProjectDescriptionHelpers
 let project = Project
     .staticFramework(name: "UtilityKit",
                      dependencies: [
-                      .Project.Module.RxPackage,
+                      .Project.Module.RxPackage
                      ])

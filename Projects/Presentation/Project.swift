@@ -8,10 +8,13 @@ let project = Project
                     .Project.Module.ThirdPartyLibraryManager,
                     .Project.Module.RxPackage,
                     .Project.UserInterface.DesignSystem,
-                    .Project.Module.UtilityKit,
+                    .Project.Module.UtilityKit
+//                    .Project.Network.Service,
+//                    .Project.Network.APIKit,
                    ],
                    infoPlist: [
-                     "ApiUrl": "$(API_URL)",
-                     "SocketUrl": "$(SOCKET_URL)"
+                     "NSAppTransportSecurity": .dictionary([
+                      "NSAllowsArbitraryLoads": .boolean(true)
+                     ])
                    ],
                    hasDemoApp: true)

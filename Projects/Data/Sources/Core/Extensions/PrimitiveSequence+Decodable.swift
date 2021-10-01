@@ -21,4 +21,3 @@ extension PrimitiveSequence where Trait == SingleTrait, Element == Response {
     }
   }
 }
-

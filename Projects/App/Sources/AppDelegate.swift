@@ -16,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   private var reachability: Reachability?
   func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
   ) -> Bool {
     setReachability()
     registerInjection()
@@ -26,15 +26,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 #endif
     return true
   }
+  
   private func prepareNavigation() {
     self.window = UIWindow(frame: UIScreen.main.bounds)
-    
+
     coordinator.rx.didNavigate
       .subscribe(onNext: { flow, step in
         Logger.d("did navigate to flow : \(flow), step : \(step)")
       }).disposed(by: disposeBag)
+    
     let appFlow = AppFlow()
     self.coordinator.coordinate(flow: appFlow, with: AppStepper())
+    
     Flows.use(appFlow, when: .created) { [unowned self] root in
       self.window?.rootViewController = root
       self.window?.makeKeyAndVisible()
@@ -51,7 +54,7 @@ private extension AppDelegate {
       Logger.e(error)
     }
   }
-  
+
   func registerInjection() {
     InjectService().register()
     InjectDataSource().register()

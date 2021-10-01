@@ -7,6 +7,7 @@
 //
 import Foundation
 import Moya
+
 // MARK: - LoginService
 public enum LoginService: TargetType {
   case login(loginID: String, password: String)
@@ -17,36 +18,40 @@ extension LoginService {
   public var baseURL: URL {
     Environment.apiURL
   }
-  
+
   public var path: String {
     switch self {
     case .login:
-      return ""
+      return "/api/v1/login/mobile_login"
     }
   }
-  
+
   public var method: Moya.Method {
     switch self {
     default:
       return .get
     }
   }
-  
+
   public var sampleData: Data {
     LoginFixture.data
   }
-  
+
   public var task: Task {
     switch self {
     case let .login(loginID, password):
       return .requestParameters(
-        parameters: ["login_id": loginID, "login_pw": password],
+        parameters: ["login_id": loginID, "login_pw": password, "corp_uid": "deepfine-ai"],
         encoding: URLEncoding.default
       )
     }
   }
-  
+
   public var headers: [String: String]? {
-    ["Content-Type": "application/json; charset=utf-8"]
+    [
+      "Content-Type": "application/json; charset=utf-8",
+      "app-version": Environment.version,
+      "app-version-code": Environment.buildNumber
+    ]
   }
 }

@@ -17,7 +17,7 @@ public extension Scheme.Workspace {
                       profileAction: ProfileAction(configurationName: target.rawValue),
                       analyzeAction: AnalyzeAction(configurationName: target.rawValue))
     }
-    
+
     static func makeModuleScheme(name: String, target: ProjectDeployTarget) -> Scheme {
         let schemeName = "Workspace-\(name)-\(target.rawValue)"
         return Scheme(name: schemeName,

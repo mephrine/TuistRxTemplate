@@ -2,18 +2,16 @@ import UIKit
 import RxSwift
 import ThirdPartyLibraryManager
 
-public class BaseViewController:
-  UIViewController,
+public class BaseViewController: UIViewController,
   HasSetupConstraints,
-  HasDisposeBag
-{
+  HasDisposeBag {
 
   // MARK: - Properties
   var disposeBag = DisposeBag()
 
   // MARK: - Inheritance
   func setupConstraints() {}
-  
+
   // MARK: - Initialization & Deinitialization
 
   public init() {
@@ -51,4 +49,3 @@ public class BaseViewController:
     didSetupConstraints = true
   }
 }
-

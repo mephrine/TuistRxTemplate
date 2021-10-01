@@ -10,6 +10,6 @@ import Foundation
 
 protocol HasViewModel {
   associatedtype ViewModel
-  
+
   var viewModel: ViewModel { get }
 }

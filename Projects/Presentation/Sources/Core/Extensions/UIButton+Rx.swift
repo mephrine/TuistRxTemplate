@@ -12,6 +12,6 @@ import RxCocoa
 
 extension Reactive where Base: UIButton {
   public var throttleTap: ControlEvent<Void> {
-    ControlEvent(events: tap.throttle(.milliseconds(300), latest: false ,scheduler: MainScheduler.instance))
+    ControlEvent(events: tap.throttle(.milliseconds(300), latest: false, scheduler: MainScheduler.instance))
   }
 }

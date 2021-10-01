@@ -10,7 +10,7 @@ import UIKit
 
 struct RImage: _ExpressibleByImageLiteral {
     let image: UIImage
-    
+
     init(imageLiteralResourceName path: String) {
         if let image = UIImage(named: path, in: .module, compatibleWith: nil) {
             self.image = image

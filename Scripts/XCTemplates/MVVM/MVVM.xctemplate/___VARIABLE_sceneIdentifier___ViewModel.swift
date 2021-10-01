@@ -13,13 +13,13 @@ protocol ___VARIABLE_sceneIdentifier___ViewModelInput {
 }
 
 protocol ___VARIABLE_sceneIdentifier___ViewModelOutput {
-    
+
 }
 
 protocol ___VARIABLE_sceneIdentifier___ViewModel: ___VARIABLE_sceneIdentifier___ViewModelInput, ___VARIABLE_sceneIdentifier___ViewModelOutput { }
 
 class Default___VARIABLE_sceneIdentifier___ViewModel: ___VARIABLE_sceneIdentifier___ViewModel {
-    
+
     // MARK: - OUTPUT
 
 }

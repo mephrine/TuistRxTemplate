@@ -11,11 +11,10 @@ import RxFlow
 enum AppStep: Step {
   // MARK: - Initialize
   case initApp
-  
+
   // MARK: - Login
-  case goToMain
-  
+  case goToMain(userName: String)
+
   // MARK: - Main
   case backToLogin
 }
-

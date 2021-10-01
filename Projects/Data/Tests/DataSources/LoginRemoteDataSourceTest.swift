@@ -1,10 +1,6 @@
 import Foundation
-import RxPackage
+import XCTest
 
-public protocol LoginRemoteDataSource {
-  
-}
-
-public struct LoginRemoteDataSourceImpl: LoginRemoteDataSource {
+public struct LoginRemoteDataSourceImplTest: XCTest {
   public init() {}
 }

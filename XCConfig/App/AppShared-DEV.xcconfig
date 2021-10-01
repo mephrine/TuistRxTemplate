@@ -1,0 +1,4 @@
+#include "../Shared.xcconfig"
+
+API_URL = http:/$()/api.dev
+SOCKET_URL = https:/$()/socket.dev

@@ -9,34 +9,33 @@
 import Foundation
 
 protocol HasResult {
-  associatedtype Result
-  
-  var resultCode: String { get set }
-  var resultMessage: String { get set }
-  var result: Result? { get set }
+  associatedtype ResultData
+  var statusCode: String? { get set }
+  var statusMessage: String? { get set }
+  var errorCode: String? { get set }
+  var errorMessage: String? { get set }
+  var resultCnt: Int? { get set }
+  var resultYn: String? { get set }
+  var resultData: ResultData? { get set }
 }
 
-//ResultIncludable
+// ResultIncludable
 public struct ResultDTO<T: Decodable>: HasResult, Decodable {
-  var result: T?
-  var resultCode: String
-  var resultMessage: String
-  
-  enum CodingKeys: String, CodingKey {
-    case result
-    case resultCode = "result_code"
-    case resultMessage = "result_message"
-  }
+  var resultData: T?
+  var statusCode: String?
+  var statusMessage: String?
+  var errorCode: String?
+  var errorMessage: String?
+  var resultCnt: Int?
+  var resultYn: String?
 }
 
 public struct ResultListDTO<T: Decodable>: HasResult, Decodable {
-  var result: [T]?
-  var resultCode: String
-  var resultMessage: String
-  
-  enum CodingKeys: String, CodingKey {
-    case result
-    case resultCode = "result_code"
-    case resultMessage = "result_message"
-  }
+  var resultData: [T]?
+  var statusCode: String?
+  var statusMessage: String?
+  var errorCode: String?
+  var errorMessage: String?
+  var resultCnt: Int?
+  var resultYn: String?
 }

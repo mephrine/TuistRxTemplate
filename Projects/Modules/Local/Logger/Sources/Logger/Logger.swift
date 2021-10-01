@@ -9,26 +9,26 @@
 import Foundation
 
 public struct Logger {
-  
+
   private init() {}
-  
+
   private enum Level: String {
     case d = "💬 DEBUG"
     case i = "💡 INFO"
     case e = "⚠️ ERROR"
     case f = "🔥 FATAL"
   }
-  
+
   private static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH:mm:ss"
     return formatter
   }()
-  
+
   private static var currentDateString: String {
     return dateFormatter.string(from: Date())
   }
-  
+
   private static func log(
     level: Level,
     fileName: String = #file,
@@ -43,7 +43,7 @@ public struct Logger {
     print(pretty, output)
 #endif
   }
-  
+
   public static func d(
     fileName: String = #file,
     function: String = #function,
@@ -53,7 +53,7 @@ public struct Logger {
   ) {
     log(level: .d, fileName: fileName, function: function, line: line, separator: separator, items)
   }
-  
+
   public static func i(
     fileName: String = #file,
     function: String = #function,
@@ -63,7 +63,7 @@ public struct Logger {
   ) {
     log(level: .i, fileName: fileName, function: function, line: line, separator: separator, items)
   }
-  
+
   public static func e(
     fileName: String = #file,
     function: String = #function,
@@ -73,7 +73,7 @@ public struct Logger {
   ) {
     log(level: .e, fileName: fileName, function: function, line: line, separator: separator, items)
   }
-  
+
   public static func f(
     fileName: String = #file,
     function: String = #function,
@@ -83,15 +83,15 @@ public struct Logger {
   ) {
     log(level: .f, fileName: fileName, function: function, line: line, separator: separator, items)
   }
-  
+
   private static func sourceFileName(filePath: String) -> String {
     let components = filePath.components(separatedBy: "/")
     let fileName = components.last ?? ""
     return String(fileName.split(separator: ".").first ?? "")
   }
-  
+
   private static func toOutput(with items: [Any]) -> Any {
     return items.map { String("\($0)") }.joined(separator: " ")
   }
-  
+
 }

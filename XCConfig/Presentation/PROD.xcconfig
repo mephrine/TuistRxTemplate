@@ -1,1 +1,1 @@
-#include "../Shared-PROD.xcconfig"
+#include "../Shared.xcconfig"

@@ -11,7 +11,7 @@ import Foundation
 protocol ViewActionTransformable: AnyObject {
   associatedtype Action
   associatedtype State
-  
+
   func transform(action: Action) -> State
 //  var action: Action { get }
 //  var state: State { get }

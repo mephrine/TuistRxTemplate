@@ -1,6 +1,7 @@
 import Foundation
 import Domain
+import XCTest
 
-public struct LoginRepositoryImpl: LoginRepository {
+public struct LoginRepositoryImplTest: XCTest {
   public init() {}
 }

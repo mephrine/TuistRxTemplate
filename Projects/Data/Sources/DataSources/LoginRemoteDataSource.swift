@@ -4,6 +4,7 @@ import NetworkService
 import InjectPropertyWrapper
 import NetworkAPIKit
 import UtilityKit
+import Logger
 
 public protocol LoginRemoteDataSource {
   func requestLogin(loginID: String, password: String) -> Single<UserModel>
@@ -12,18 +13,22 @@ public protocol LoginRemoteDataSource {
 public struct LoginRemoteDataSourceImpl: LoginRemoteDataSource {
   // MARK: - Inject
   @Inject private var service: Networking<LoginService>
-  
+
   // MARK: - Initialize
   public init() {}
-  
+
   // MARK: - Implementation
   public func requestLogin(loginID: String, password: String) -> Single<UserModel> {
-    service.request(.login(loginID: loginID, password: password))
-      .map(to: ResultDTO<UserModel>.self)
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601withFractionalSeconds
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+    return service.request(.login(loginID: loginID, password: password))
+      .map(ResultDTO<UserModel>.self, using: decoder, failsOnEmptyData: false)
       .asObservable()
       .flatMap({ response -> Observable<ResultDTO<UserModel>> in
         Observable<ResultDTO<UserModel>>.create { observer in
-          if response.resultCode == "400" {
+          if response.statusCode == "400" {
             observer.onError(LoginError.loginInfoMismatch)
           } else {
             observer.onNext(response)
@@ -32,7 +37,7 @@ public struct LoginRemoteDataSourceImpl: LoginRemoteDataSource {
           return Disposables.create()
         }
       })
-      .map { $0.result ?? UserModel.empty() }
+      .map { $0.resultData ?? UserModel.empty() }
       .asSingle()
   }
 }

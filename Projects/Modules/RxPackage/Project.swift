@@ -7,7 +7,7 @@ let project = Project
                 .RxFlow,
                 .RxSwift,
                 .RxSwiftExt,
-                .RxReachability,
+                .RxReachability
                ],
                dependencies: [
                 .SPM.RxFlow,
@@ -15,6 +15,6 @@ let project = Project
                 .SPM.RxRelay,
                 .SPM.RxSwift,
                 .SPM.RxSwiftExt,
-                .SPM.RxReachability,
+                .SPM.RxReachability
 //                .Framework.RxViewController,
                ])

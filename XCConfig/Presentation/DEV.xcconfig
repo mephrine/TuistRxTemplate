@@ -1,1 +1,3 @@
-#include "../Shared-DEV.xcconfig"
+#include "../Shared.xcconfig"
+
+ENABLE_TESTS = 1

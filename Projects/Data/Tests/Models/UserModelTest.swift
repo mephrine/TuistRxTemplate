@@ -1,5 +1,6 @@
 import Foundation
+import XCTest
 
-struct UserModel: Decodable {
-  var name: String?
+class UserModelTest: XCTest {
+
 }

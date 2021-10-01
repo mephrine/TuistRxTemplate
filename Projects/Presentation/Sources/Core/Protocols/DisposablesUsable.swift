@@ -19,7 +19,7 @@ extension DisposablesUsable where Self: HasCompositeDisposable {
   func disposeDisposable() {
     disposables.dispose()
   }
-  
+
   func resetDisposables() {
     disposables.dispose()
     disposables = CompositeDisposable()

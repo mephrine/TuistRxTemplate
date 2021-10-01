@@ -23,14 +23,14 @@ extension PullToRefreshable where Self: HasDisposeBag & HasTableView {
   func setRefreshControl() {
     tableView.refreshControl = refreshControl
   }
-  
+
   func bindRefreshControlEvent() {
     refreshControl.rx.controlEvent(.valueChanged)
     .asObservable()
     .bind(to: refreshEvent)
     .disposed(by: disposeBag)
   }
-  
+
   func endRefreshing() {
     refreshControl.endRefreshing()
   }

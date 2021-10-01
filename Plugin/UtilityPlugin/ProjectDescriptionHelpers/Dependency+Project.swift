@@ -13,7 +13,7 @@ extension TargetDependency {
 public extension TargetDependency.Project {
   static let Data = TargetDependency.data(name: "Data")
   static let Domain = TargetDependency.domain(name: "Domain")
-  static let Presentation = TargetDependency.presentation(name : "Presentation")
+  static let Presentation = TargetDependency.presentation(name: "Presentation")
 }
 
 public extension TargetDependency.Project.UserInterface {

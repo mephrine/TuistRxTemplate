@@ -19,7 +19,7 @@ struct PrepareDevelopToolService {
         #if canImport(DevelopTool)
         HTTPStubs.setup()
         #endif
-        
+
         #if canImport(FLEX)
         FLEXManager.shared.showExplorer()
         #endif
