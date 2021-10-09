@@ -13,7 +13,6 @@ public class BaseViewController: UIViewController,
   func setupConstraints() {}
 
   // MARK: - Initialization & Deinitialization
-
   public init() {
     super.init(nibName: nil, bundle: nil)
   }
