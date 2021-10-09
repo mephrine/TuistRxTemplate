@@ -11,10 +11,10 @@ import DesignSystem
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct TestViewControllerPreview: PreviewProvider {
+struct ViewControllerPreview: PreviewProvider {
   static var previews: some View {
     UIViewControllerPreview {
-      TestViewController()
+      DemoViewController()
     }
   }
 }

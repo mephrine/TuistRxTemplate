@@ -49,7 +49,7 @@ import Presentation
 struct DemoViewControllerPreview: PreviewProvider {
   static var previews: some View {
     UIViewControllerPreview {
-      TestViewController()
+      DemoViewController()
     }
   }
 }
