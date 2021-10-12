@@ -24,7 +24,7 @@ final public class MainViewController: BaseViewController, HasViewModel {
   @Inject var viewModel: MainViewModel
   
   // MARK: - UI
-  private let mainView = MainView()
+  private let mainView = MainView(frame: .zero)
   
   //MARK: - Initailzie
   public init(userName loggedInUserName: String) {

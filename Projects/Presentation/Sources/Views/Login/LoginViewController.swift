@@ -23,10 +23,9 @@ final public class LoginViewController: BaseViewController, HasViewModel {
   @Inject var viewModel: LoginViewModel
   
   // MARK: - UI
-  let loginView = LoginView()
+  private let loginView = LoginView(frame: .zero)
 
   // MARK: - View Life Cycle
-  
   public override func loadView() {
     self.view = loginView
   }
