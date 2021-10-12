@@ -33,6 +33,10 @@ final public class MainViewController: BaseViewController, HasViewModel {
   }
 
   // MARK: - View Life Cycle
+  public override func loadView() {
+    self.view = mainView
+  }
+  
   public override func viewDidLoad() {
     super.viewDidLoad()
     setupNavigationBar()

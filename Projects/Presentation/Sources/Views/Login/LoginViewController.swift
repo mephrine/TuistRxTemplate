@@ -33,6 +33,7 @@ final public class LoginViewController: BaseViewController, HasViewModel {
   override public func viewDidLoad() {
     super.viewDidLoad()
     setupNavigationBar()
+    bindUI()
   }
 
   override func setupConstraints() {
