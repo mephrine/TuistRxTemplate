@@ -1,7 +1,7 @@
 # TODO
 * - [ ] Tuist 2.2.1 버전으로 올리기
-    - Xcode 13 버전 및 macOS 12 버전 이상이 필수 조건.
-    - macOS 12 버전부터 Concurrency 모듈을 지원하기 때문에 필수!!
+    - Xcode 13.1 버전 필수 -> Xcode 13.1은 macOS 12 버전 이상이 필수 조건.
+    - Xcode 13.1 부터 Concurrency 모듈을 지원하기 때문에 필수!!
     - 주로 문법만 변경된 수준! 사내 플젝에서 2.2.1 버전용으로 컨버팅 했을 때 생각보다 금방 수정했음!
 * - [ ] **Localizable**
 * - [ ] **DevOps**
