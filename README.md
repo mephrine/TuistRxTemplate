@@ -9,6 +9,6 @@
     - [ ] **GitAction**
 
 Reference By
-- [민소네님 Git](https://github.com/minsOne/iOSApplicationTemplate).
-- [민소네님 블로그](https://minsone.github.io/archive).
-- [ElonPark님 Git](https://github.com/ElonPark/RIBsReactorKit).
+- [민소네님 Git](https://github.com/minsOne/iOSApplicationTemplate)
+- [민소네님 블로그](https://minsone.github.io/archive)
+- [ElonPark님 Git](https://github.com/ElonPark/RIBsReactorKit)
