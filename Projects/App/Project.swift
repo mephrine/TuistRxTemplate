@@ -3,7 +3,7 @@ import ProjectDescriptionHelpers
 import UtilityPlugin
 
 let settings: Settings =
-  .init(base: Enviorment.baseSetting,
+  .settings(base: Enviorment.baseSetting,
         configurations:
           [
             .debug(name: .dev, xcconfig: .relativeToRoot("XCConfig/App/DevApp-DEV.xcconfig")),
@@ -14,7 +14,7 @@ let settings: Settings =
             .release(name: .prod, xcconfig: .relativeToRoot("XCConfig/App/App-PROD.xcconfig"))
           ])
 
-let actions: [TargetAction] = [
+let scripts: [TargetScript] = [
   .swiftLint
 ]
 
@@ -28,7 +28,7 @@ let targets: [Target] = [
         infoPlist: .extendingDefault(with: Enviorment.appInfoPlist),
         sources: ["Sources/**"],
         resources: ["Resources/**"],
-        actions: actions,
+        scripts: scripts,
         dependencies: [
           .Project.Presentation,
           .Project.Module.InjectManager,
@@ -44,7 +44,7 @@ let targets: [Target] = [
         infoPlist: .extendingDefault(with: Enviorment.appInfoPlist),
         sources: ["Sources/**", "DevSources/**"],
         resources: ["Resources/**"],
-        actions: actions,
+        scripts: scripts,
         dependencies: [
           .Project.Presentation,
           .Project.Module.InjectManager,
@@ -69,22 +69,22 @@ let targets: [Target] = [
 let schemes: [Scheme] = [
   .init(name: "\(Enviorment.targetDevName)-Develop",
         shared: true,
-        buildAction: BuildAction(targets: ["\(Enviorment.targetDevName)"]),
-        testAction: TestAction(targets: ["\(Enviorment.targetTestsName)"],
-                               configurationName: .dev,
-                               coverage: true),
-        runAction: RunAction(configurationName: .dev),
-        archiveAction: ArchiveAction(configurationName: .dev),
-        profileAction: ProfileAction(configurationName: .dev),
-        analyzeAction: AnalyzeAction(configurationName: .dev)),
+        buildAction: .buildAction(targets: ["\(Enviorment.targetDevName)"]),
+        testAction: TestAction.targets(["\(Enviorment.targetTestsName)"], configuration: .dev, options: TestActionOptions.options(coverage: true, codeCoverageTargets: ["\(Enviorment.targetDevName)"])),
+        runAction: .runAction(configuration: .dev),
+        archiveAction: .archiveAction(configuration: .dev),
+        profileAction: .profileAction(configuration: .dev),
+        analyzeAction: .analyzeAction(configuration: .dev)),
+  
+  
   .init(name: "\(Enviorment.targetName)-PROD",
         shared: true,
         buildAction: BuildAction(targets: ["\(Enviorment.targetName)"]),
         testAction: nil,
-        runAction: RunAction(configurationName: .prod),
-        archiveAction: ArchiveAction(configurationName: .prod),
-        profileAction: ProfileAction(configurationName: .prod),
-        analyzeAction: AnalyzeAction(configurationName: .prod))
+        runAction: .runAction(configuration: .prod),
+        archiveAction: .archiveAction(configuration: .prod),
+        profileAction: .profileAction(configuration: .prod),
+        analyzeAction: .analyzeAction(configuration: .prod))
 ]
 
 // MARK: - Project

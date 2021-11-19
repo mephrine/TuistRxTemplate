@@ -61,7 +61,7 @@ public extension Project {
                       infoPlist: [String: InfoPlist.Value] = [:],
                       hasDemoApp: Bool = false) -> Project {
 
-    let settings = Settings(base: Enviorment.baseSetting,
+    let settings: Settings = .settings(base: Enviorment.baseSetting,
                             configurations: [
                               .debug(name: .dev, xcconfig: .relativeToXCConfig(type: .dev, name: name)),
                               .debug(name: .test, xcconfig: .relativeToXCConfig(type: .test, name: name)),
@@ -131,26 +131,22 @@ extension Scheme {
   static func makeScheme(target: ProjectDeployTarget, name: String) -> Self {
     return Scheme(name: "\(name)",
                   shared: true,
-                  buildAction: BuildAction(targets: ["\(name)"]),
-                  testAction: TestAction(targets: ["\(name)Tests"],
-                                         configurationName: target.rawValue,
-                                         coverage: true),
-                  runAction: RunAction(configurationName: target.rawValue),
-                  archiveAction: ArchiveAction(configurationName: target.rawValue),
-                  profileAction: ProfileAction(configurationName: target.rawValue),
-                  analyzeAction: AnalyzeAction(configurationName: target.rawValue))
+                  buildAction: .buildAction(targets: ["\(name)"]),
+                  testAction: .targets(["\(name)Tests"], configuration: target.configurationName, options: TestActionOptions.options(coverage: true, codeCoverageTargets: ["\(name)"])),
+                  runAction: .runAction(configuration: target.configurationName),
+                  archiveAction: .archiveAction(configuration: target.configurationName),
+                  profileAction: .profileAction(configuration: target.configurationName),
+                  analyzeAction: .analyzeAction(configuration: target.configurationName))
   }
 
   static func makeDemoScheme(target: ProjectDeployTarget, name: String) -> Self {
     return Scheme(name: "\(name)DemoApp",
                   shared: true,
-                  buildAction: BuildAction(targets: ["\(name)DemoApp"]),
-                  testAction: TestAction(targets: ["\(name)Tests"],
-                                         configurationName: target.rawValue,
-                                         coverage: true),
-                  runAction: RunAction(configurationName: target.rawValue),
-                  archiveAction: ArchiveAction(configurationName: target.rawValue),
-                  profileAction: ProfileAction(configurationName: target.rawValue),
-                  analyzeAction: AnalyzeAction(configurationName: target.rawValue))
+                  buildAction: .buildAction(targets: ["\(name)DemoApp"]),
+                  testAction: .targets(["\(name)Tests"], configuration: target.configurationName, options: TestActionOptions.options(coverage: true, codeCoverageTargets: ["\(name)DemoApp"])),
+                  runAction: .runAction(configuration: target.configurationName),
+                  archiveAction: .archiveAction(configuration: target.configurationName),
+                  profileAction: .profileAction(configuration: target.configurationName),
+                  analyzeAction: .analyzeAction(configuration: target.configurationName))
   }
 }
