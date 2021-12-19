@@ -12,4 +12,8 @@ public extension String {
   var localized: String {
     NSLocalizedString(self, tableName: "Localizable", bundle: Bundle.module, value: self, comment: "")
   }
+	
+	func localized(_ params: Any...) -> String {
+		String(format: self, params)
+	}
 }

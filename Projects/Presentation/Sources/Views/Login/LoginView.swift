@@ -6,6 +6,7 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
+import DesignSystem
 import SnapKit
 import UIKit
 
@@ -46,7 +47,7 @@ final class LoginView: UIView {
   
   // MARK: - UI
   private lazy var emailLabel = UILabel().then {
-    $0.text = "이메일"
+		$0.text = "Email".localized
     $0.font = UI.Font.title
     self.addSubview($0)
   }
@@ -59,7 +60,7 @@ final class LoginView: UIView {
   }
   
   private lazy var passwordLabel = UILabel().then {
-    $0.text = "비밀번호"
+		$0.text = "Password".localized
     $0.font = UI.Font.title
     self.addSubview($0)
   }
@@ -73,7 +74,7 @@ final class LoginView: UIView {
   }
   
   lazy var loginButton = UIButton().then {
-    $0.setTitle("로그인", for: .normal)
+		$0.setTitle("Login".localized, for: .normal)
     $0.setTitleColor(UI.Color.buttonTilte, for: .normal)
     $0.titleLabel?.font = UI.Font.buttonTitle
     $0.backgroundColor = UI.Color.buttonBackground

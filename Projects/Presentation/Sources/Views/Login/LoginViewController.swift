@@ -94,8 +94,8 @@ extension LoginViewController {
 
   private func failedLogin(error: Error) {
     let failedLoginAlert = UIAlertController(
-      title: "로그인 실패",
-      message: "잘못된 로그인 정보를 입력했습니다.",
+			title: "FailedLoginAlertTitle".localized,
+			message: "FailedLoginAlertMessage".localized,
       preferredStyle: .alert
     )
 
@@ -105,8 +105,15 @@ extension LoginViewController {
   }
 
   private func succeedLogin(user: User) {
-    let succeedLoginAlert = UIAlertController(title: "로그인 성공", message: "\(user.name)님 로그인에 성공하셨습니다.", preferredStyle: .alert)
-    let okayButtonAction = UIAlertAction(title: "메인으로", style: .default) { _ in
+		let succeedLoginAlert = UIAlertController(
+			title: "SucceedLoginAlertTitle".localized,
+			message: "SucceedLoginAlertMessage".localized(user.name),
+			preferredStyle: .alert
+		)
+		let okayButtonAction = UIAlertAction(
+			title: "GoToMain".localized,
+			style: .default
+		) { _ in
       self.viewModel.routeToMain(userName: user.name)
     }
     succeedLoginAlert.addAction(okayButtonAction)

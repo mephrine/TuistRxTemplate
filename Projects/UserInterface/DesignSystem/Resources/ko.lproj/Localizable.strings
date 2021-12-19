@@ -6,4 +6,13 @@
   Copyright © 2021 benz. All rights reserved.
 */
 
-"ReceiveFile" = "새로운 파일을 수신하였습니다.";
+"Email" = "이메일";
+"Password" = "비밀번호";
+"Login" = "로그인";
+"Name" = "이름";
+"Logout" = "로그아웃";
+"FailedLoginAlertTitle" = "로그인 실패";
+"FailedLoginAlertMessage" = "잘못된 로그인 정보를 입력했습니다.";
+"SucceedLoginAlertTitle" = "로그인 성공";
+"SucceedLoginAlertMessage" = "%d님 로그인에 성공하셨습니다.";
+"GoToMain" = "메인으로";

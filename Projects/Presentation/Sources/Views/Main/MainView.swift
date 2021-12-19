@@ -6,6 +6,7 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
+import DesignSystem
 import ResourcePackage
 import SnapKit
 import UIKit
@@ -47,7 +48,7 @@ final class MainView: UIView {
   
   // MARK: - UI
   private lazy var nameTitleLabel = UILabel().then {
-    $0.text = "이름"
+		$0.text = "Name".localized
     $0.font = UI.Font.title
     $0.textColor = UI.Color.title
     self.addSubview($0)
@@ -60,7 +61,7 @@ final class MainView: UIView {
   }
 
   lazy var logoutButton = UIButton().then {
-    $0.setTitle("로그아웃", for: .normal)
+    $0.setTitle("Logout".localized, for: .normal)
     $0.setTitleColor(UI.Color.signupButtonTitle, for: .normal)
     $0.backgroundColor = UI.Color.buttonBackground
     $0.titleLabel?.font = UI.Font.buttonTitle
