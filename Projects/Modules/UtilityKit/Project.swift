@@ -2,7 +2,11 @@ import ProjectDescription
 import ProjectDescriptionHelpers
 
 let project = Project
-    .staticFramework(name: "UtilityKit",
-                     dependencies: [
-                      .Project.Module.RxPackage
-                     ])
+	.framework(name: "UtilityKit",
+						 packages: [
+							.Then,
+						 ],
+						 dependencies: [
+							.Project.Module.RxPackage,
+							.SPM.Then,
+						 ])

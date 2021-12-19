@@ -55,7 +55,6 @@ public extension TargetDependency.SPM {
 // MARK: - Others
 public extension TargetDependency.SPM {
   static let Then = TargetDependency.swiftPackageManager(name: "Then")
-  static let Logger = TargetDependency.package(product: "Logger")
   static let Reusable = TargetDependency.swiftPackageManager(name: "Reusable")
 }
 

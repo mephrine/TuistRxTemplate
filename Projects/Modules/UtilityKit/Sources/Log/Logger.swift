@@ -1,17 +1,14 @@
 //
-//  Log.swift
-//  UtilityModule
+//  Logger.swift
+//  UtilityKit
 //
-//  Created by 홍경표 on 2021/08/05.
-//  Copyright © 2021 softbay. All rights reserved.
+//  Created by Mephrine on 2021/12/06.
+//  Copyright © 2021 benz. All rights reserved.
 //
 
 import Foundation
 
-public struct Logger {
-
-  private init() {}
-
+public enum Logger {
   private enum Level: String {
     case d = "💬 DEBUG"
     case i = "💡 INFO"

@@ -119,6 +119,15 @@
         }
       },
       {
+        "package": "SkeletonView",
+        "repositoryURL": "https://github.com/Juanpe/SkeletonView.git",
+        "state": {
+          "branch": null,
+          "revision": "a9c22f502a4d938bd3fb6f17fe4d6633c423085a",
+          "version": "1.26.0"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {

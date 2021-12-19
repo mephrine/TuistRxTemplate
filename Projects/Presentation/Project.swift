@@ -9,12 +9,5 @@ let project = Project
                     .Project.Module.RxPackage,
                     .Project.UserInterface.DesignSystem,
                     .Project.Module.UtilityKit
-//                    .Project.Network.Service,
-//                    .Project.Network.APIKit,
-                   ],
-                   infoPlist: [
-                     "NSAppTransportSecurity": .dictionary([
-                      "NSAllowsArbitraryLoads": .boolean(true)
-                     ])
                    ],
                    hasDemoApp: true)

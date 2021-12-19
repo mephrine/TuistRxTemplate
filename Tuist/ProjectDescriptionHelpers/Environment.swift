@@ -25,7 +25,14 @@ public enum Enviorment {
 ]
 
   public static let appInfoPlist: [String: InfoPlist.Value] = infoPlist.merging([
-    "ApiURL": "$(API_URL)",
-    "SocketURL": "$(SOCKET_URL)"
+    "API_URL": "$(API_URL)",
+    "SOCKET_URL": "$(SOCKET_URL)",
+		"NSAppTransportSecurity": .dictionary([
+		 "NSAllowsArbitraryLoads": .boolean(true)
+		]),
+		"NSCameraUsageDescription": "카메라 사진 업로드 권한 문구 필요",
+		"NSPhotoLibraryAddUsageDescription": "앨범 사진 업로드 권한 문구 필요",
+		"NSMicrophoneUsageDescription": "카메라 직접 촬영 음성 권한 문구 필요",
+		"CFBundleAllowMixedLocalizations": .boolean(true),
   ]) { _, last in last }
 }
