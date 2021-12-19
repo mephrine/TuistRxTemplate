@@ -47,7 +47,7 @@ public extension TargetDependency.SPM {
 
 // MARK: - Layout
 public extension TargetDependency.SPM {
-//  static let FlexLayout = TargetDependency.swiftPackageManager(name: "FlexLayout")
+	static let SkeletonView = TargetDependency.swiftPackageManager(name: "SkeletonView")
   static let PinLayout = TargetDependency.swiftPackageManager(name: "PinLayout")
   static let SnapKit = TargetDependency.swiftPackageManager(name: "SnapKit")
 }
@@ -56,28 +56,14 @@ public extension TargetDependency.SPM {
 public extension TargetDependency.SPM {
   static let Then = TargetDependency.swiftPackageManager(name: "Then")
   static let Logger = TargetDependency.package(product: "Logger")
-//  static let RxViewController = TargetDependency.package(product: "RxViewController")
   static let Reusable = TargetDependency.swiftPackageManager(name: "Reusable")
 }
-
-public extension Package {
-  static let Logger = Package.local(path: .relativeToLocalModule("Logger"))
-//  static let RxViewController = Package.local(path: .relativeToLocalModule("RxViewController"))
-//  static let RxViewController = Package.package(url: "https://github.com/devxoul/RxViewController.git", .branch("master"))
-}
-
-// public extension Package {
-//  static let InjectPropertyWrapper = Package.package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master"))
-//  static let Swinject = Package.package(url: "https://github.com/Swinject/Swinject.git", .branch("master"))
-//  static let Kingfisher = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
-//  static let Logger = Package.local(path: .relativeToRoot("Projects/Modules/Local/Logger"))
-// }
 
 public extension Package {
   static let InjectPropertyWrapper = Package.package(url: "https://github.com/egeniq/InjectPropertyWrapper.git", .branch("master"))
   static let Swinject = Package.package(url: "https://github.com/Swinject/Swinject.git", .branch("master"))
   static let SnapKit = Package.package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
-//  static let FlexLayout = Package.package(url: "https://github.com/layoutBox/FlexLayout.git", .upToNextMajor(from: "1.3.18"))
+	static let SkeletonView = Package.package(url: "https://github.com/Juanpe/SkeletonView.git", .upToNextMajor(from: "1.7.0"))
   static let PinLayout = Package.package(url: "https://github.com/layoutBox/PinLayout", .branch("master"))
   static let Kingfisher = Package.package(url: "https://github.com/onevcat/Kingfisher.git", .branch("master"))
   static let Then = Package.package(url: "https://github.com/devxoul/Then", .upToNextMajor(from: "2.7.0"))
@@ -87,7 +73,6 @@ public extension Package {
   static let RxSwiftExt = Package.package(url: "https://github.com/RxSwiftCommunity/RxSwiftExt.git", .branch("main"))
   static let Alamofire = Package.package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.4.0"))
   static let Moya = Package.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
-//  static let Reachability = Package.package(url: "https://github.com/ashleymills/Reachability.swift", .upToNextMajor(from: "5.1.0"))
   static let RxReachability = Package.package(url: "https://github.com/RxSwiftCommunity/RxReachability", .upToNextMajor(from: "1.2.1"))
   static let RxFlow = Package.package(url: "https://github.com/RxSwiftCommunity/RxFlow.git", .upToNextMajor(from: "2.10.0"))
   static let RxDataSources = Package.package(url: "https://github.com/RxSwiftCommunity/RxDataSources.git", .upToNextMajor(from: "5.0.2"))

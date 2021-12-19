@@ -6,11 +6,18 @@ let project = Project
              packages: [
               .UserInterface.ResourcePackage,
               .PinLayout,
-              .SnapKit
+              .SnapKit,
+							.SkeletonView,
              ],
+						 resources: [
+							.glob(pattern: "Resources/Base.lproj/Localizable.strings"),
+							.glob(pattern: "Resources/en.lproj/Localizable.strings"),
+							.glob(pattern: "Resources/ko.lproj/Localizable.strings"),
+						 ],
              dependencies: [
+							.SPM.UserInterface.ResourcePackage,
               .Framework.FlexLayout,
-              .SPM.UserInterface.ResourcePackage,
+							.SPM.SkeletonView,
               .SPM.PinLayout,
               .SPM.SnapKit
              ],

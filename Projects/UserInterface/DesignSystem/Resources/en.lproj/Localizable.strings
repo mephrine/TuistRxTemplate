@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  DesignSystem
+
+  Created by Mephrine on 2021/12/09.
+  Copyright © 2021 benz. All rights reserved.
+*/
+
+"ReceiveFile" = "새로운 파일을 수신하였습니다.";
