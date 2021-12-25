@@ -43,7 +43,7 @@ Feature
 │       └── ViewModels
 └── Project.swift
 ```
-* - [ ] **DevOps**
+* - [ ] **CI/CD**
     - [ ] **Fastlane**
     - [ ] **GitAction**
 
