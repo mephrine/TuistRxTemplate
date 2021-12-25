@@ -19,15 +19,15 @@ for filename in os.listdir(dirname):
 colorDict["level1"] = colorLevel1
 print(json.dumps(colorDict, sort_keys=False, indent=4))
 
-f = open("Sources/ResourcePackage/ColorAsset.swift", 'w')
+f = open("Sources/ResourcePackage/Assets/ColorAsset.swift", 'w')
 f.write("import Foundation\n")
-f.write("import UIKit\n\n")
+f.write("import UIKit\n")
 
-f.write("public extension R.Color {\n")
-for key in colorDict.keys():
-    if key == "level1": continue
-    f.write("    struct " + key + " {}\n")
-f.write("}\n")
+#f.write("public extension R.Color {\n")
+#for key in colorDict.keys():
+#    if key == "level1": continue
+#    f.write("    struct " + key + " {}\n")
+#f.write("}\n")
 
 for key in colorDict.keys():
     if key == "level1":
@@ -37,7 +37,7 @@ for key in colorDict.keys():
     list = colorDict[key]
     list.sort()
     for asset in list:
-        f.write("    static var " + asset + ": UIColor { return UIColor(named: \"" + asset + "\", in: .module, compatibleWith: nil)! }\n")
+        f.write(" static var " + asset + ": UIColor { return UIColor.makeColor(name: \"" + asset + "\") }\n")
     f.write("}\n")
 f.close()
 
@@ -46,14 +46,14 @@ f.write("import XCTest\n")
 f.write("@testable import ResourcePackage\n")
 f.write("\n")
 f.write("final class ColorAssetTests: XCTestCase {\n")
-f.write("    func testColor() {\n")
+f.write(" func testColor() {\n")
 for key in colorDict.keys():
     list = colorDict[key]
     for asset in list:
-        f.write("        _ = R.Color.")
+        f.write("   _ = R.Color.")
         if key != "level1":
             f.write(key + ".")
         f.write(asset + "\n")
-f.write("    }\n")
+f.write(" }\n")
 f.write("}\n")
 f.close()

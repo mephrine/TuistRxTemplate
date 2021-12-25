@@ -70,13 +70,18 @@ let schemes: [Scheme] = [
   .init(name: "\(Enviorment.targetDevName)-Develop",
         shared: true,
         buildAction: .buildAction(targets: ["\(Enviorment.targetDevName)"]),
-        testAction: TestAction.targets(["\(Enviorment.targetTestsName)"], configuration: .dev, options: TestActionOptions.options(coverage: true, codeCoverageTargets: ["\(Enviorment.targetDevName)"])),
+        testAction: TestAction.targets(
+					["\(Enviorment.targetTestsName)"],
+					configuration: .dev,
+					options: TestActionOptions.options(
+						coverage: true,
+						codeCoverageTargets: ["\(Enviorment.targetDevName)"]
+					)
+				),
         runAction: .runAction(configuration: .dev),
         archiveAction: .archiveAction(configuration: .dev),
         profileAction: .profileAction(configuration: .dev),
         analyzeAction: .analyzeAction(configuration: .dev)),
-  
-  
   .init(name: "\(Enviorment.targetName)-PROD",
         shared: true,
         buildAction: BuildAction(targets: ["\(Enviorment.targetName)"]),

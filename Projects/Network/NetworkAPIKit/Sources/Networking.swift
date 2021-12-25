@@ -1,8 +1,8 @@
-import RxSwift
 import Moya
-import Logger
+import RxSwift
+import UtilityKit
 
-final public class Networking<Target: TargetType>: MoyaProvider<Target> {
+public final class Networking<Target: TargetType>: MoyaProvider<Target> {
 
   public func request(
     _ target: Target,

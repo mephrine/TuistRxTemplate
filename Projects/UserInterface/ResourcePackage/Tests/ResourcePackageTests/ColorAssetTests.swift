@@ -2,12 +2,12 @@ import XCTest
 @testable import ResourcePackage
 
 final class ColorAssetTests: XCTestCase {
-    func testColor() {
-        _ = R.Color.Color1
-        _ = R.Color.Color2
-        _ = R.Color.Color3
-        _ = R.Color.Color4
-        _ = R.Color.Color5
-        _ = R.Color.Color6
-    }
+ func testColor() {
+   _ = R.Color.AppBackground
+   _ = R.Color.AppColor
+   _ = R.Color.Black_000000
+   _ = R.Color.Black_1d2433
+   _ = R.Color.Blue_0189ff
+   _ = R.Color.White_ffffff
+ }
 }

@@ -18,6 +18,8 @@ public extension TargetDependency.Project {
 
 public extension TargetDependency.Project.UserInterface {
   static let DesignSystem = TargetDependency.userInterface(name: "DesignSystem")
+	static let LocalizableStringManager = TargetDependency.userInterface(name: "LocalizableStringManager")
+ static let UserInterfaceLibraryManager = TargetDependency.userInterface(name: "UserInterfaceLibraryManager")
 }
 
 public extension TargetDependency.Project.Module {

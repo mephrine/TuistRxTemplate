@@ -5,17 +5,18 @@
 //  Created by Mephrine on 2021/09/27.
 //  Copyright © 2021 deepfine. All rights reserved.
 //
-import RxSwift
-import UIKit
 import DesignSystem
 import InjectPropertyWrapper
 import ResourcePackage
+import RxCocoa
+import RxSwift
+import UIKit
 
-final public class MainViewController: BaseViewController, HasViewModel {
+final class MainViewController: BaseViewController, HasViewModel {
   // MARK: - Constants
   private enum UI {
     enum Color {
-      static let navigationBackground: UIColor = R.Color.Color1
+			static let navigationBackground: UIColor = R.Color.Blue_0189ff
       static let navigationTitle: UIColor = .black
     }
   }

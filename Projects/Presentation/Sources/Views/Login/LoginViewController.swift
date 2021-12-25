@@ -1,16 +1,16 @@
-import RxSwift
-import RxCocoa
-import UIKit
-import Then
-import SnapKit
 import DesignSystem
-import ResourcePackage
-import InjectPropertyWrapper
-import UtilityKit
-import Logger
 import Domain
+import InjectPropertyWrapper
+import LocalizableStringManager
+import ResourcePackage
+import RxCocoa
+import RxSwift
+import SnapKit
+import Then
+import UIKit
+import UtilityKit
 
-final public class LoginViewController: BaseViewController, HasViewModel {
+final class LoginViewController: BaseViewController, HasViewModel {
   // MARK: - Constants
   private enum UI {
     enum Color {

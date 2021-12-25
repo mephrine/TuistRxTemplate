@@ -47,15 +47,6 @@
         }
       },
       {
-        "package": "PinLayout",
-        "repositoryURL": "https://github.com/layoutBox/PinLayout",
-        "state": {
-          "branch": "master",
-          "revision": "f1de5a0e006e5bb8476bc2d3b3eac60e73c3f1c1",
-          "version": null
-        }
-      },
-      {
         "package": "Reachability",
         "repositoryURL": "https://github.com/ashleymills/Reachability.swift",
         "state": {

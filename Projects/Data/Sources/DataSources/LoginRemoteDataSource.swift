@@ -4,7 +4,6 @@ import NetworkService
 import InjectPropertyWrapper
 import NetworkAPIKit
 import UtilityKit
-import Logger
 
 public protocol LoginRemoteDataSource {
   func requestLogin(loginID: String, password: String) -> Single<UserModel>

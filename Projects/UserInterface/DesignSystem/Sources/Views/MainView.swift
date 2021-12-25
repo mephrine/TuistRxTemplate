@@ -6,12 +6,11 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
-import DesignSystem
 import ResourcePackage
 import SnapKit
 import UIKit
 
-final class MainView: UIView {
+final public class MainView: UIView {
   // MARK: - Constants
   private enum UI {
     static let buttonHeight: CGFloat = 50
@@ -54,13 +53,13 @@ final class MainView: UIView {
     self.addSubview($0)
   }
 
-  lazy var userNameLabel = UILabel().then {
+	public lazy var userNameLabel = UILabel().then {
     $0.font = UI.Font.informationTitle
     $0.textColor = UI.Color.title
     self.addSubview($0)
   }
 
-  lazy var logoutButton = UIButton().then {
+  public lazy var logoutButton = UIButton().then {
     $0.setTitle("Logout".localized, for: .normal)
     $0.setTitleColor(UI.Color.signupButtonTitle, for: .normal)
     $0.backgroundColor = UI.Color.buttonBackground
@@ -68,7 +67,7 @@ final class MainView: UIView {
     self.addSubview($0)
   }
   
-  override init(frame: CGRect) {
+  public override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
   }
@@ -101,3 +100,18 @@ final class MainView: UIView {
     }
   }
 }
+
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct MainViewPreview: PreviewProvider {
+	static var previews: some View {
+		UIViewPreview {
+			MainView(frame: CGRect.zero)
+		}.previewDevice(PreviewDevice.init(rawValue: "iPhone 12 Pro"))
+	}
+}
+#endif
+

@@ -6,11 +6,12 @@
 //  Copyright © 2021 deepfine. All rights reserved.
 //
 
-import DesignSystem
+import LocalizableStringManager
 import SnapKit
+import Then
 import UIKit
 
-final class LoginView: UIView {
+public final class LoginView: UIView {
   // MARK: - Constants
   private enum UI {
     static let buttonHeight: CGFloat = 50
@@ -52,7 +53,7 @@ final class LoginView: UIView {
     self.addSubview($0)
   }
   
-  lazy var emailTextField = UITextField().then {
+	public lazy var emailTextField = UITextField().then {
     $0.placeholder = "E-Mail"
     $0.font = UI.Font.inputTitle
     $0.borderStyle = .roundedRect
@@ -65,7 +66,7 @@ final class LoginView: UIView {
     self.addSubview($0)
   }
   
-  lazy var passwordTextField = UITextField().then {
+	public lazy var passwordTextField = UITextField().then {
     $0.placeholder = "Password"
     $0.font = UI.Font.inputTitle
     $0.isSecureTextEntry = true
@@ -73,7 +74,7 @@ final class LoginView: UIView {
     self.addSubview($0)
   }
   
-  lazy var loginButton = UIButton().then {
+	public lazy var loginButton = UIButton().then {
 		$0.setTitle("Login".localized, for: .normal)
     $0.setTitleColor(UI.Color.buttonTilte, for: .normal)
     $0.titleLabel?.font = UI.Font.buttonTitle
@@ -81,7 +82,7 @@ final class LoginView: UIView {
     self.addSubview($0)
   }
   
-  override init(frame: CGRect) {
+  public override init(frame: CGRect) {
     super.init(frame: frame)
     setupViews()
   }
@@ -125,4 +126,17 @@ final class LoginView: UIView {
     }
   }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+@available(iOS 13.0, *)
+struct LoginViewPreview: PreviewProvider {
+	static var previews: some View {
+		UIViewPreview {
+			LoginView(frame: CGRect.zero)
+		}.previewDevice(PreviewDevice.init(rawValue: "iPhone 12 Pro"))
+	}
+}
+#endif
 

@@ -2,5 +2,10 @@ import Foundation
 import UIKit
 
 public extension R.Color {
-    static var Color1: UIColor { .dynamicColor(light: #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), dark: #colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1)) }
+ static var AppBackground: UIColor { return UIColor.makeColor(name: "AppBackground") }
+ static var AppColor: UIColor { return UIColor.makeColor(name: "AppColor") }
+ static var Black_000000: UIColor { return UIColor.makeColor(name: "Black_000000") }
+ static var Black_1d2433: UIColor { return UIColor.makeColor(name: "Black_1d2433") }
+ static var Blue_0189ff: UIColor { return UIColor.makeColor(name: "Blue_0189ff") }
+ static var White_ffffff: UIColor { return UIColor.makeColor(name: "White_ffffff") }
 }

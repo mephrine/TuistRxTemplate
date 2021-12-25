@@ -8,7 +8,7 @@ public enum Enviorment {
   public static let targetTestsName = "\(targetDevName)Tests"
   public static let organizationName = "mephrine"
   public static let bundleId = "mephrine.template"
-  public static let deploymentTarget: DeploymentTarget = .iOS(targetVersion: "12.0", devices: .iphone)
+  public static let deploymentTarget: DeploymentTarget = .iOS(targetVersion: "13.0", devices: .iphone)
   public static let deploymentDemoTarget: DeploymentTarget = .iOS(targetVersion: "13.0", devices: .iphone)
   public static let platform: Platform = .iOS
   public static let baseSetting: SettingsDictionary = [

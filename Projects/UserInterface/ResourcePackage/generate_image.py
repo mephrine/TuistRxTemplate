@@ -58,15 +58,15 @@ def print_image_group(tree, level):
             if imageName[0].isdigit():
                 assetName = "_" + imageName
             for i in range(level):
-                f.write("    ")
+                f.write(" ")
             f.write("public static var " + assetName + ": UIImage { .R(#imageLiteral (resourceName: \"" + imageName + "\")) }\n")
         else:
             for i in range(level):
-                f.write("    ")
+                f.write(" ")
             f.write("public struct " + key + " {\n")
             print_image_group(tree[key], level + 1)
             for i in range(level):
-                f.write("    ")
+                f.write(" ")
             f.write("}\n")
 
 print_image_group(tree, 1)
@@ -80,7 +80,7 @@ f.write("import XCTest\n")
 f.write("@testable import ResourcePackage\n")
 f.write("\n")
 f.write("final class ImageAssetTests: XCTestCase {\n")
-f.write("    func test_image() {\n")
+f.write(" func test_image() {\n")
 
 def print_assetNotNil_image(tree, group):
     keyList = list(tree)
@@ -91,7 +91,7 @@ def print_assetNotNil_image(tree, group):
             assetName = imageName
             if imageName[0].isdigit():
                 assetName = "_" + imageName
-            f.write("        XCTAssertNotNil(" + group + "." + assetName + ".cgImage)\n")
+            f.write("   XCTAssertNotNil(" + group + "." + assetName + ".cgImage)\n")
         elif ".appiconset" in key:
             continue
         else:
@@ -99,6 +99,6 @@ def print_assetNotNil_image(tree, group):
 
 print_assetNotNil_image(tree, "R.Image")
 
-f.write("    }\n")
+f.write(" }\n")
 f.write("}\n")
 f.close()
