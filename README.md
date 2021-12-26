@@ -12,37 +12,37 @@
 FeatureA
 ├── FeatureAInterface
 ├── Data
-│	├── Sources
-│	│   ├── DataSources
-│	│   ├── Repositories
-│	│   └── Models
-│	└── Tests
-│	    ├── DataSources
-│	    ├── Repositories
-│	    └── Models
+│   ├── Sources
+│   │   ├── DataSources
+│   │   ├── Repositories
+│   │   └── Models
+│   └── Tests
+│       ├── DataSources
+│       ├── Repositories
+│       └── Models
 ├── Domain
-│	├── Sources
-│	│   ├── Repositories
-│	│   ├── UseCases
-│	│   └── Entities
-│	└── Tests
-│	    ├── Repositories
-│	    ├── UseCases
-│	    └── Entities
+│   ├── Sources
+│   │   ├── Repositories
+│   │   ├── UseCases
+│   │   └── Entities
+│   └── Tests
+│       ├── Repositories
+│       ├── UseCases
+│       └── Entities
 └──Presentation
- 	├── Demo
- 	│   ├── Sources
- 	│	│	└── AppDelegate
- 	│   └── Resources
- 	│		└── LaunchScreen
- 	├── Sources
- 	│   ├── Routers
- 	│   ├── Views
- 	│   └── ViewModels
- 	└── Tests
- 	    ├── Routers
- 	    ├── Views
- 	    └── ViewModels
+    ├── Demo
+    │   ├── Sources
+    │   │   └── AppDelegate
+    │   └── Resources
+    │       └── LaunchScreen
+    ├── Sources
+    │   ├── Routers
+    │   ├── Views
+    │   └── ViewModels
+    └── Tests
+        ├── Routers
+        ├── Views
+        └── ViewModels
 ```
 * - [ ] **CI/CD**
     - [ ] **Fastlane**
