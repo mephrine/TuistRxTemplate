@@ -9,39 +9,40 @@
 -> Preview는 Static Framework에서 실행할 수 없기 때문에, DesignSystem에서 Preview 확인하며 UIKit으로 View를 그리기 위한 용도
 * - [ ] 아래 구조로 변경해보기  (사내 플젝에 적용 중)
 ```
-Feature
-├── Demo
-│   ├── Sources
-│   └── Resources
-├── Sources
-│   ├── FeatureAInterface
-│   ├── FeatureA
-│   │   ├── Data
-│   │   │   ├── DataSources
-│   │   │   ├── Repositories
-│   │   │   └── Models
-│   │   ├── Domain
-│   │   │   ├── Repositories
-│   │   │   ├── UseCases
-│   │   │   └── Entities
-│   │   └── Presentation
-│   │       ├── Routers
-│   │       ├── Views
-│   │       └── ViewModels
-├── Tests
-│   ├── Data
-│   │   ├── DataSources
-│   │   ├── Repositories
-│   │   └── Models
-│   ├── Domain
-│   │   ├── Repositories
-│   │   ├── UseCases
-│   │   └── Entities
-│   └── Presentation
-│       ├── Routers
-│       ├── Views
-│       └── ViewModels
-└── Project.swift
+FeatureA
+├── FeatureAInterface
+├── Data
+│	├── Sources
+│	│   ├── DataSources
+│	│   ├── Repositories
+│	│   └── Models
+│	└── Tests
+│	    ├── DataSources
+│	    ├── Repositories
+│	    └── Models
+├── Domain
+│	├── Sources
+│	│   ├── Repositories
+│	│   ├── UseCases
+│	│   └── Entities
+│	└── Tests
+│	    ├── Repositories
+│	    ├── UseCases
+│	    └── Entities
+└──Presentation
+ 	├── Demo
+ 	│   ├── Sources
+ 	│	│	└── AppDelegate
+ 	│   └── Resources
+ 	│		└── LaunchScreen
+ 	├── Sources
+ 	│   ├── Routers
+ 	│   ├── Views
+ 	│   └── ViewModels
+ 	└── Tests
+ 	    ├── Routers
+ 	    ├── Views
+ 	    └── ViewModels
 ```
 * - [ ] **CI/CD**
     - [ ] **Fastlane**
