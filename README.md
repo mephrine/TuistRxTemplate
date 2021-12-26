@@ -4,8 +4,8 @@
     - Xcode 13.1 부터 Concurrency 모듈을 지원하기 때문에 필수!!
     - 주로 문법만 변경된 수준! 사내 플젝에서 2.2.1 버전용으로 컨버팅 했을 때 생각보다 금방 수정했음!
 * - [x] **Localizable**
-* - [ ] UserInterface에서 LocalizableString 프레임워크로 따로 관리하도록 변경 (사내 플젝에 적용한 것 옮기기)
-* - [ ] DesignSystem에서 View를 그리고 Presentation에서 사용하도록 수정. (사내 플젝에 적용한 것 옮기기)</br>
+* - [x] UserInterface에서 LocalizableString 프레임워크로 따로 관리하도록 변경 (사내 플젝에 적용한 것 옮기기)
+* - [x] DesignSystem에서 View를 그리고 Presentation에서 사용하도록 수정. (사내 플젝에 적용한 것 옮기기)</br>
 -> Preview는 Static Framework에서 실행할 수 없기 때문에, DesignSystem에서 Preview 확인하며 UIKit으로 View를 그리기 위한 용도
 * - [ ] 아래 구조로 변경해보기  (사내 플젝에 적용 중)
 ```
