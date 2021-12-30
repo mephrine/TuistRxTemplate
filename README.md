@@ -8,6 +8,8 @@
 * - [x] DesignSystem에서 View를 그리고 Presentation에서 사용하도록 수정. </br>
 -> Preview는 Static Framework에서 실행할 수 없기 때문에, DesignSystem에서 Preview 확인하며 UIKit으로 View를 그리기 위한 용도
 * - [ ] 아래 구조로 변경해보기 (사내 플젝에 적용한 것 옮기기)
+    - [x] 파일 Template 만들기
+    - [x] Feature 구조 생성하는 스크립트 만들기 
 ```
 Feature
 ├── FeatureInterface
