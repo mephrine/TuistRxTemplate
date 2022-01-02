@@ -5,8 +5,8 @@
     - 주로 문법만 변경된 수준! 사내 플젝에서 2.2.1 버전용으로 컨버팅 했을 때 생각보다 금방 수정했음!
 * - [x] **Localizable**
 * - [x] UserInterface에서 LocalizableString 프레임워크로 따로 관리하도록 변경 
-* - [x] DesignSystem에서 View를 그리고 Presentation에서 사용하도록 수정. </br>
--> Preview는 Static Framework에서 실행할 수 없기 때문에, DesignSystem에서 Preview 확인하며 UIKit으로 View를 그리기 위한 용도
+* - [x] Feature에 UserInterface 레이어 추가 </br>
+-> Preview는 Static Framework에서 실행할 수 없기 때문에, Dynamic Framework로 구성된 UserInterface에서 UIKit으로 View를 코드로 그리며 Preview를 활용하기 위한 용도
 * - [ ] 아래 구조로 변경해보기 (사내 플젝에 적용한 것 옮기기)
     - [x] 파일 Template 만들기
     - [x] Feature 구조 생성하는 스크립트 만들기 
