@@ -1,5 +1,4 @@
 import ProjectDescription
-import ProjectDescriptionHelpers
 
 public enum Enviorment {
   public static let appName = "MyApps"
@@ -33,6 +32,14 @@ public enum Enviorment {
 		"NSCameraUsageDescription": "카메라 사진 업로드 권한 문구 필요",
 		"NSPhotoLibraryAddUsageDescription": "앨범 사진 업로드 권한 문구 필요",
 		"NSMicrophoneUsageDescription": "카메라 직접 촬영 음성 권한 문구 필요",
+    "NSPhotoLibraryUsageDescription": "앨범 접근 권한 문구 필요",
+    "UIFileSharingEnabled": .boolean(true),
+    "LSSupportsOpeningDocumentsInPlace": .boolean(true),
 		"CFBundleAllowMixedLocalizations": .boolean(true),
+    "UIBackgroundModes": [
+      "voice-over-ip",
+    ],
+    "UIViewControllerBasedStatusBarAppearance": .boolean(false),
+    "UIStatusBarStyle": "UIStatusBarStyleLightContent"
   ]) { _, last in last }
 }

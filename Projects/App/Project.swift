@@ -18,6 +18,15 @@ let scripts: [TargetScript] = [
   .swiftLint
 ]
 
+let dependencies: [TargetDependency] = [
+  TargetDependency.Project.Feature.Features,
+  [
+    .Project.Module.InjectManager,
+    .Project.Module.RxPackage,
+    .Project.Module.ThirdPartyDynamicLibraryPluginManager
+  ]
+].flatMap { $0 }
+
 let targets: [Target] = [
   .init(name: Enviorment.targetName,
         platform: .iOS,
@@ -29,12 +38,7 @@ let targets: [Target] = [
         sources: ["Sources/**"],
         resources: ["Resources/**"],
         scripts: scripts,
-        dependencies: [
-          .Project.Presentation,
-          .Project.Module.InjectManager,
-          .Project.Module.RxPackage,
-          .Project.Module.ThirdPartyDynamicLibraryPluginManager
-        ]),
+        dependencies: dependencies),
   .init(name: "\(Enviorment.targetDevName)",
         platform: .iOS,
         product: .app,
@@ -45,13 +49,7 @@ let targets: [Target] = [
         sources: ["Sources/**", "DevSources/**"],
         resources: ["Resources/**"],
         scripts: scripts,
-        dependencies: [
-          .Project.Presentation,
-          .Project.Module.InjectManager,
-          .Project.Module.DevelopTool,
-          .Project.Module.RxPackage,
-          .Project.Module.ThirdPartyDynamicLibraryPluginManager
-        ]),
+        dependencies: dependencies + [TargetDependency.Project.Module.DevelopTool]),
   .init(name: "\(Enviorment.targetTestsName)",
         platform: .iOS,
         product: .unitTests,

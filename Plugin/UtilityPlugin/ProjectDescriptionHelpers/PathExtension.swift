@@ -11,6 +11,9 @@ public extension ProjectDescription.Path {
   static func relativeToSections(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/\(pathString)")
   }
+  static func relativeToFeature(_ pathString: String) -> Self {
+    return .relativeToRoot("Projects/Features/\(pathString)")
+  }
   static func relativeToUserInterface(_ pathString: String) -> Self {
     return .relativeToRoot("Projects/UserInterface/\(pathString)")
   }
@@ -29,6 +32,9 @@ public extension ProjectDescription.Path {
   static var app: Self {
     return .relativeToRoot("Projects/App")
   }
+  static var features: Self {
+    return .relativeToRoot("Projects/Features")
+  }
 }
 
 // MARK: Extension
@@ -36,14 +42,23 @@ extension TargetDependency {
   static func module(name: String) -> Self {
     return .project(target: name, path: .relativeToModule(name))
   }
+  static func module(name: String, path: String) -> Self {
+    return .project(target: name, path: .relativeToModule(path))
+  }
+  static func feature(name: String, path: String) -> Self {
+    return .project(target: name, path: .relativeToFeature(path))
+  }
+  static func feature(name: String) -> Self {
+    return .project(target: name, path: .relativeToFeature(name))
+  }
   static func data(name: String) -> Self {
-    return .project(target: name, path: .relativeToSections(name))
+    return .project(target: "\(name)Data", path: .relativeToFeature("\(name)/Data"))
   }
   static func domain(name: String) -> Self {
-    return .project(target: name, path: .relativeToSections(name))
+    return .project(target: "\(name)Domain", path: .relativeToFeature("\(name)/Domain"))
   }
   static func presentation(name: String) -> Self {
-    return .project(target: name, path: .relativeToSections(name))
+    return .project(target: "\(name)Presentation", path: .relativeToFeature("\(name)/Presentation"))
   }
   static func userInterface(name: String) -> Self {
     return .project(target: name, path: .relativeToUserInterface(name))

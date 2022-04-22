@@ -7,6 +7,8 @@ let project = Project
                 .Project.Network.Service,
                 .Project.Module.UtilityKit,
                 .Project.Module.RxPackage,
-                .Project.Module.ThirdPartyLibraryManager
+                .Project.Module.ThirdPartyLibraryManager,
+                .SPM.Realm,
+                .SPM.RealmSwift
                ],
                hasDemoApp: true)

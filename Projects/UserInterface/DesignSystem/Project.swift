@@ -4,9 +4,6 @@ import UtilityPlugin
 
 let project = Project
   .framework(name: "DesignSystem",
-             packages: [
-              .UserInterface.ResourcePackage,
-             ],
              dependencies: [
               .SPM.UserInterface.ResourcePackage,
               .Project.Module.UtilityKit,

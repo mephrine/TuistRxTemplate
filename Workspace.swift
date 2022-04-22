@@ -1,9 +1,9 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let workspace = Workspace(name: "App",
+let workspace = Workspace(name: "MephrineTemplateApp",
                           projects: [
-                            "Projects/App"
+                            "Projects/App",
                           ],
                           schemes: [
                             .Workspace.makeAppScheme(target: .test),

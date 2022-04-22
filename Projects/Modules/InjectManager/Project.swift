@@ -4,8 +4,9 @@ import ProjectDescriptionHelpers
 let project = Project
   .staticFramework(name: "InjectManager",
                    dependencies: [
-                    .Project.Module.CoreKit,
-                    .Project.Data,
-                    .Project.Domain,
-                    .Project.Presentation
-                   ])
+                    TargetDependency.Project.Feature.Features,
+                    [
+                      .Project.Module.CoreKit,
+                      .Project.Module.ThirdPartyLibraryManager
+                    ]
+                   ].flatMap { $0 })

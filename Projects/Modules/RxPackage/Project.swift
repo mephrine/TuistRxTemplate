@@ -3,18 +3,13 @@ import ProjectDescriptionHelpers
 
 let project = Project
     .framework(name: "RxPackage",
-               packages: [
-                .RxFlow,
-                .RxSwift,
-                .RxSwiftExt,
-                .RxReachability
-               ],
                dependencies: [
                 .SPM.RxFlow,
                 .SPM.RxCocoa,
                 .SPM.RxRelay,
                 .SPM.RxSwift,
                 .SPM.RxSwiftExt,
-                .SPM.RxReachability
+                .SPM.RxReachability,
+                .SPM.RxDataSources
 //                .Framework.RxViewController,
                ])
